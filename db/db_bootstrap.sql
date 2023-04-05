@@ -26,9 +26,48 @@ flush privileges;
 use dockter;
 
 -- Put your DDL 
-CREATE TABLE test_table (
-  name VARCHAR(20),
-  color VARCHAR(10)
+CREATE TABLE IF NOT EXISTS patient (
+  patient_id INT PRIMARY KEY,
+  first_name VARCHAR(20) NOT NULL,
+  middle_name VARCHAR(20),
+  last_name VARCHAR(20) NOT NULL,
+  phone VARCHAR(20),
+  street_address VARCHAR(10)
+  state VARCHAR(100),
+  city VARCHAR(200),
+  zipcode VARCHAR(50),
+  policy_id INT,
+  insurance_rep_id INT,
+  FOREIGN KEY policy_id references insurance_plan (policy_id)
+  FOREIGN KEY (insurancerepid) references insurance_rep (insurance_rep_id)
+);
+
+CREATE TABLE IF NOT EXISTS insurance_plan (
+);
+
+CREATE TABLE IF NOT EXISTS insurance_rep (
+);
+
+CREATE TABLE IF NOT EXISTS insurance_company (
+);
+
+CREATE TABLE IF NOT EXISTS medical_history (
+);
+
+CREATE TABLE IF NOT EXISTS appointment (
+);
+
+CREATE TABLE IF NOT EXISTS availability (
+);
+
+CREATE TABLE IF NOT EXISTS medical_professional (
+);
+
+CREATE TABLE IF NOT EXISTS services (
+);
+CREATE TABLE IF NOT EXISTS healthcare_admin_employee (
+);
+CREATE TABLE IF NOT EXISTS medical_center (
 );
 
 -- Add sample data. 
