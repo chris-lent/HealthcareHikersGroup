@@ -41,6 +41,24 @@ CREATE TABLE IF NOT EXISTS patient (
   FOREIGN KEY policy_id references insurance_plan (policy_id)
   FOREIGN KEY (insurancerepid) references insurance_rep (insurance_rep_id)
 );
+CREATE TABLE IF NOT EXISTS `northwind`.`patient` (
+  `patient_id` INT(11) NOT NULL,
+  `first_name` VARCHAR(20) NOT NULL,
+  `middle_name` VARCHAR(20) DEFAULT NULL,
+  `last_name` VARCHAR(20) NOT NULL,
+  `phone` VARCHAR(20) DEFAULT NULL,
+  `street_address` VARCHAR(100) DEFAULT NULL,
+  `state` VARCHAR(100) DEFAULT NULL,
+  `city` VARCHAR(200) DEFAULT NULL,
+  `zipcode` VARCHAR(50) DEFAULT NULL,
+  `policy_id` INT(11) DEFAULT NULL,
+  `insurance_rep_id` INT(11) DEFAULT NULL,
+  PRIMARY KEY (`patient_id`),
+  INDEX `policy_id` (`policy_id` ASC),
+  INDEX `insurance_rep_id` (`insurance_rep_id` ASC),
+  FOREIGN KEY (policy_id) REFERENCES insurance_plan (policy_id),
+  FOREIGN KEY (insurance_rep_id) REFERENCES insurance_rep (insurance_rep_id)
+);
 
 CREATE TABLE IF NOT EXISTS insurance_plan (
   policy_id INT PRIMARY KEY,
