@@ -43,15 +43,29 @@ CREATE TABLE IF NOT EXISTS patient (
 );
 
 CREATE TABLE IF NOT EXISTS insurance_plan (
+  policy_id INT PRIMARY KEY,
+  plan_name VARCHAR500) NOT NULL,
+  company_id INT,
+  FOREIGN KEY company_id references insurance_company (company_id)
 );
 
 CREATE TABLE IF NOT EXISTS insurance_rep (
+  insure_rep_ID INT PRIMARY KEY,
+  first_name VARCHAR(20) NOT NULL,
+  last_name VARCHAR(20) NOT NULL,
+  company_id INT,
+  FOREIGN KEY company_id references insurance_company (company_id)
 );
 
 CREATE TABLE IF NOT EXISTS insurance_company (
+  company_id INT PRIMARY KEY,
+  company_name VARCHAR(50)
 );
 
 CREATE TABLE IF NOT EXISTS medical_history (
+  record_id INT PRIMARY KEY,
+  patient_id INT,
+  FOREIGN KEY patient_id references patient (patient_id)
 );
 
 CREATE TABLE IF NOT EXISTS appointment (
@@ -69,7 +83,8 @@ CREATE TABLE IF NOT EXISTS healthcare_admin_employee (
 );
 CREATE TABLE IF NOT EXISTS medical_center (
 );
-
+CREATE TABLE IF NOT EXISTS conditions (
+);
 -- Add sample data. 
 INSERT INTO test_table
   (name, color)
