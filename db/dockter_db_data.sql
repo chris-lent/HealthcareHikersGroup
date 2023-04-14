@@ -3008,3 +3008,5 @@ INSERT INTO availability(day_of_week,start_time,end_time,doc_id,sched_id) VALUES
 INSERT INTO availability(day_of_week,start_time,end_time,doc_id,sched_id) VALUES ('WED','11:56:10','9:35:34',194,998);
 INSERT INTO availability(day_of_week,start_time,end_time,doc_id,sched_id) VALUES ('SUN','0:46:53','4:41:03',113,999);
 INSERT INTO availability(day_of_week,start_time,end_time,doc_id,sched_id) VALUES ('MON','10:43:52','21:26:47',490,1000);
+
+-- 
