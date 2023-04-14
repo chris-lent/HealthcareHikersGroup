@@ -94,10 +94,7 @@ CREATE TABLE IF NOT EXISTS patient (
 CREATE TABLE IF NOT EXISTS appointment (
   appoint_id INT PRIMARY KEY,
   appoint_time TIME,
-  appoint_year YEAR,
-  appoint_month INT,
-  appoint_day INT,
-  reason_for_visit VARCHAR(200),
+  appoint_date DATE,
   doc_id INT,
   patient_id INT,
   FOREIGN KEY (doc_id) references medical_professional (doc_id),
@@ -264,12 +261,10 @@ INSERT INTO patient (patient_id, first_name, middle_name, last_name, phone, stre
                      policy_id, insurance_rep_id)
 VALUES (2, 'John', 'Brandon', 'Baker', '5162223333', '12 Brick Road', 'Brookline', 'MA', 02445, 2, 1);
 
-INSERT INTO appointment (appoint_id, appoint_time, appoint_year, appoint_month, appoint_day, reason_for_visit,
-                         doc_id, patient_id)
-VALUES (1, '10:00:00', 2023, 4, 12, 'Acne', 1, 1);
-INSERT INTO appointment (appoint_id, appoint_time, appoint_year, appoint_month, appoint_day, reason_for_visit,
-                         doc_id, patient_id)
-VALUES (2, '12:00:00', 2023, 4, 11, 'Cancer', 2, 1);
+INSERT INTO appointment (appoint_id, appoint_time, appoint_date, doc_id, patient_id)
+VALUES (1, '10:00:00', 2023-04-12, 1, 1);
+INSERT INTO appointment (appoint_id, appoint_time, appoint_date, doc_id, patient_id)
+VALUES (2, '12:00:00', 2023-04-11, 2, 1);
 
 INSERT INTO medical_history (record_id, patient_id)
 VALUES (1, 1);
