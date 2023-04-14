@@ -262,9 +262,9 @@ INSERT INTO patient (patient_id, first_name, middle_name, last_name, phone, stre
 VALUES (2, 'John', 'Brandon', 'Baker', '5162223333', '12 Brick Road', 'Brookline', 'MA', 02445, 2, 1);
 
 INSERT INTO appointment (appoint_id, appoint_time, appoint_date, doc_id, patient_id)
-VALUES (1, '10:00:00', 2023-04-12, 1, 1);
+VALUES (1, '10:00:00', '2023-04-12', 1, 1);
 INSERT INTO appointment (appoint_id, appoint_time, appoint_date, doc_id, patient_id)
-VALUES (2, '12:00:00', 2023-04-11, 2, 1);
+VALUES (2, '12:00:00', '2023-04-11', 2, 1);
 
 INSERT INTO medical_history (record_id, patient_id)
 VALUES (1, 1);
