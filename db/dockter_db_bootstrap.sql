@@ -30,7 +30,6 @@ CREATE TABLE IF NOT EXISTS healthcare_admin_employee (
   admin_id INT PRIMARY KEY,
   first_name VARCHAR(20),
   last_name VARCHAR(20),
-  position VARCHAR(50),
   center_id INT,
   FOREIGN KEY (center_id) references medical_center (center_id)
 );
@@ -227,9 +226,9 @@ INSERT INTO medical_center (center_id, center_name, street_address, state, city,
 VALUES (2, 'Mass Gen', '1 State Street', 'MA', 'Boston', 02120, '6173333333');
 
 INSERT INTO healthcare_admin_employee (admin_id, first_name, last_name, position, center_id)
-VALUES (1, 'John', 'Smith', 'Head Admin', 2);
+VALUES (1, 'John', 'Smith', 2);
 INSERT INTO healthcare_admin_employee (admin_id, first_name, last_name, position, center_id)
-VALUES (2, 'Jill', 'Barnes', 'Admin Assistant', 1);
+VALUES (2, 'Jill', 'Barnes', 1);
 
 INSERT INTO medical_professional (doc_id, first_name, last_name, specialty_name, admin_id)
 VALUES (1, 'Amy', 'Lake', 'Dermatology', 1);
