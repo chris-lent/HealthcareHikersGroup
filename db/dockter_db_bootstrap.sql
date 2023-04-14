@@ -222,9 +222,9 @@ VALUES (1, 'Bringham', '1 ABC Street', 'MA', 'Boston', 02120, '6171234789');
 INSERT INTO medical_center (center_id, center_name, street_address, state, city, zipcode, phone)
 VALUES (2, 'Mass Gen', '1 State Street', 'MA', 'Boston', 02120, '6173333333');
 
-INSERT INTO healthcare_admin_employee (admin_id, first_name, last_name, position, center_id)
+INSERT INTO healthcare_admin_employee (admin_id, first_name, last_name, center_id)
 VALUES (1, 'John', 'Smith', 2);
-INSERT INTO healthcare_admin_employee (admin_id, first_name, last_name, position, center_id)
+INSERT INTO healthcare_admin_employee (admin_id, first_name, last_name, center_id)
 VALUES (2, 'Jill', 'Barnes', 1);
 
 INSERT INTO medical_professional (doc_id, first_name, last_name, specialty_name, admin_id)
