@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify, make_response
+from flask import Blueprint, request, jsonify, make_response, current_app
 import json
 from src import db
 
@@ -33,25 +33,41 @@ def get_insurance(patientID):
 
     return jsonify(json_data)
 
-@hospital_employee.route('/center_offers_services/{center_id}', methods=['POST'])
-def add_new_service():
+# Add services the center offers
+@hospital_employee.route('/center_offers_services/<centerID>', methods=['POST'])
+def add_new_service(centerID):
 
     # collecting the data from the request object
     the_data = request.json 
     current_app.logger.info(the_data)
 
     # extracting the variable
-    name = the_data['product_name']
-    description = the_data['product_description']
-    price = the_data['product_price']
-    category = the_data['product_category']
+    serviceCode = the_data['service_id']
 
     # constructing the query
-    query = 'insert into products (product_name, description, list_price) values ("'
-    query += name + '", "'
-    query += description + '", "'
-    query += category + '", '
-    query += str(price) + ')'
+    query = 'insert into center_offers_services values ({0},{1})'.format(centerID, serviceCode)
+    current_app.logger.info(query)
+
+    #executing and commiting the inset statement
+    cursor = db.get_db().cursor()
+    cursor.execute(query)
+    db.get_db().commit()
+
+    return "Success!"
+
+# Add services the center offers
+@hospital_employee.route('/center_offers_services/<centerID>', methods=['DELETE'])
+def delete_service(centerID):
+
+    # collecting the data from the request object
+    the_data = request.json 
+    current_app.logger.info(the_data)
+
+    # extracting the variable
+    serviceCode = the_data['service_id']
+
+    # constructing the query
+    query = 'DELETE FROM center_offers_services WHERE center_id = {0} AND service_id = {1}'.format(centerID, serviceCode))
     current_app.logger.info(query)
 
     #executing and commiting the inset statement
