@@ -1,7 +1,7 @@
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 
-USE `dockter`;
+USE dockter;
 
 -- Insert into allergies table
 INSERT INTO allergies(record_id,allergy) VALUES (932,'Peanuts');
@@ -2007,7 +2007,7 @@ INSERT INTO appointment(appoint_time,appoint_date,doc_id,patient_id,appoint_id) 
 INSERT INTO appointment(appoint_time,appoint_date,doc_id,patient_id,appoint_id) VALUES ('8:54 PM','2022-04-29',289,280,999);
 INSERT INTO appointment(appoint_time,appoint_date,doc_id,patient_id,appoint_id) VALUES ('7:20 AM','2022-11-09',134,397,1000);
 
--- Insert into availibility
+-- Insert into availability
 INSERT INTO availability(day_of_week,start_time,end_time,doc_id,sched_id) VALUES ('FRI','2:51:04','15:42:28',122,1);
 INSERT INTO availability(day_of_week,start_time,end_time,doc_id,sched_id) VALUES ('THU','3:31:56','4:58:54',232,2);
 INSERT INTO availability(day_of_week,start_time,end_time,doc_id,sched_id) VALUES ('THU','16:49:29','18:14:20',381,3);
