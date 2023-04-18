@@ -200,7 +200,7 @@ CREATE TABLE IF NOT EXISTS service_treats_condition (
 CREATE TABLE IF NOT EXISTS insurance_covers_service (
     service_id INT,
     policy_id INT,
-    referral_needed BOOLEAN,
+    referral_needed BIT,
     coverage_description VARCHAR(50),
     PRIMARY KEY (service_id, policy_id),
     FOREIGN KEY (service_id) references services (service_id),
