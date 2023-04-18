@@ -40,5 +40,19 @@
     "headers": [],
     "params": [],
     "tests": []
+  },
+  {
+    "_id": "e1f994b9-9e30-4d85-85bb-78c1c2f7d860",
+    "colId": "25cac594-e080-4ccd-8aee-761df7b739e4",
+    "containerId": "",
+    "name": "Get Patients",
+    "url": "localhost:8001/pt/patient",
+    "method": "GET",
+    "sortNum": 30000,
+    "created": "2023-04-18T05:16:59.846Z",
+    "modified": "2023-04-18T05:17:27.975Z",
+    "headers": [],
+    "params": [],
+    "tests": []
   }
 ]
