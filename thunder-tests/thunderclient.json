@@ -54,5 +54,33 @@
     "headers": [],
     "params": [],
     "tests": []
+  },
+  {
+    "_id": "e57fbca8-25d4-4ecd-9c29-21b46874e94b",
+    "colId": "43b18eb6-2b64-4144-8dee-2b967987e2bc",
+    "containerId": "",
+    "name": "Get Patient's (patient_id = 4) Insurance Plan Name ",
+    "url": "localhost:8001/he/patient/4",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2023-04-18T18:28:27.367Z",
+    "modified": "2023-04-18T18:29:37.697Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "21a814bd-3e7c-429e-9e66-81b7c219afab",
+    "colId": "43b18eb6-2b64-4144-8dee-2b967987e2bc",
+    "containerId": "",
+    "name": "Get Patient's (patient_id = 4) Insurance Plan Name ",
+    "url": "localhost:8001/he/patient/336",
+    "method": "GET",
+    "sortNum": 30000,
+    "created": "2023-04-18T18:30:47.750Z",
+    "modified": "2023-04-18T18:31:01.133Z",
+    "headers": [],
+    "params": [],
+    "tests": []
   }
 ]
