@@ -55,7 +55,7 @@ def add_new_service(centerID):
 
     return "Success!"
 
-# Add services the center offers
+# Delete services the center offers
 @hospital_employee.route('/center_offers_services/<centerID>', methods=['DELETE'])
 def delete_service(centerID):
 
@@ -71,7 +71,7 @@ def delete_service(centerID):
         DELETE FROM center_offers_services 
         WHERE center_id = {0} AND service_id = {1}
     '''.format(centerID, serviceCode)
-    
+
     current_app.logger.info(query)
 
     #executing and commiting the inset statement
