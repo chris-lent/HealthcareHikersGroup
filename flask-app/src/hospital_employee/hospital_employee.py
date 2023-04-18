@@ -67,7 +67,11 @@ def delete_service(centerID):
     serviceCode = the_data['service_id']
 
     # constructing the query
-    query = 'DELETE FROM center_offers_services WHERE center_id = {0} AND service_id = {1}'.format(centerID, serviceCode))
+    query = '''
+        DELETE FROM center_offers_services 
+        WHERE center_id = {0} AND service_id = {1}
+    '''.format(centerID, serviceCode)
+    
     current_app.logger.info(query)
 
     #executing and commiting the inset statement
