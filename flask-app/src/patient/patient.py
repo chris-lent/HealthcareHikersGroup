@@ -22,22 +22,50 @@ def get_patients():
 
 # GET request that retrieves all the treatment centers that support a 
 # patient's insurance plan, given the policy_id parameter
-# medical_centers = Blueprint('medical_centers', __name__)
 
-# @app.route('/medical_centers', methods=['GET'])
-# def get_medical_centers():
-#     centers = db.session.query(MedicalCenter).all()
-#     result = []
-#     for center in centers:
-#         center_data = {
-#             'center_id': center.center_id,
-#             'center_name': center.center_name,
-#             'street_address': center.street_address,
-#             'state': center.state,
-#             'city': center.city,
-#             'zipcode': center.zipcode,
-#             'phone': center.phone
-#         }
+medical_centers = Blueprint('medical_centers', __name__)
+@patient.route('/medical_center/<center_name>', methods=['GET'])
+def get_medical_centers():
+    query = ('''
+        SELECT center_name
+        FROM medical_center mc
+        JOIN center_accepts_insurance_plan ip on mc.center_id = ip.center_id
+        JOIN (SELECT policy_id from patient
+            WHERE patient_id = {0}) as p where p.policy_id = ip.policy_id
+    ''').format(patientID)
+    cursor = db.get_db().cursor()
+    cursor.execute(query)
+
+    # grab the column headers from the returned data
+    column_headers = [x[0] for x in cursor.description]
+
+    # create an empty dictionary object to use in 
+    # putting column headers together with data
+    json_data = []
+
+    # fetch all the data from the cursor
+    theData = cursor.fetchall()
+    
+    # for each of the rows, zip the data elements together with
+    # the column headers. 
+    for row in theData:
+        json_data.append(dict(zip(column_headers, row)))
+
+    return jsonify(json_data)
+    
+     #centers = db.session.query(MedicalCenter).all()
+     #result = []
+     #for center in centers:
+         #center_data = {
+            #'center_id': center.center_id,
+            # 'center_name': center.center_name,
+             #'street_address': center.street_address,
+             #'state': center.state,
+            # 'city': center.city,
+            # 'zipcode': center.zipcode,
+            # 'phone': center.phone
+         #}
+
 #         # Get the services offered by the center
 #         services = db.session.query(Service).join(CenterOffersService).filter(CenterOffersService.center_id == center.center_id).all()
 #         services_data = []
