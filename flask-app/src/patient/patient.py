@@ -133,5 +133,56 @@ def get_patient_history(patientID):
     response.mimetype = 'application/json'
     return response
 
+# Update patient contact information
+@patient.route('/update_contact_info/<int:patientID>-<phone>', methods=['PUT'])
+def update_contact_info(patientID, phone):
+    print("Endpoint called!")
+    # collecting the data from the request object
+    the_data = request.json 
+    current_app.logger.info(the_data)
+
+    query = '''
+        UPDATE patient
+        SET phone = '{1}' WHERE patient_id = {0}
+    '''.format(patientID, phone)
+
+    current_app.logger.info(query)
+
+    #executing and commiting the update statement
+    cursor = db.get_db().cursor()
+    cursor.execute(query)
+    db.get_db().commit()
+
+    return "Success!"
 
 
+# Input patient contact information.
+@patient.route('/input_contact_info/<patientID>', methods=['POST'])
+def input_patient_contact_info(patientID):
+    print("Endpoint called!")
+    data = request.get_json()
+    phone_number = data.get('phone_number')
+    
+    cursor = db.get_db().cursor()
+    cursor.execute('UPDATE patient SET phone = ? WHERE patient_id = ?', 
+                   (phone_number, patientID))
+    db.get_db().commit()
+    
+    response = make_response(jsonify({'message': 'Patient phoe number updated.'}))
+    response.status_code = 200
+    response.mimetype = 'application/json'
+    return response
+
+
+# Delete patient phone number.
+@patient.route('/delete_patient_phone/<patientID>', methods=['DELETE'])
+def delete_patient_phone(patientID):
+    print("Endpoint called!")
+    cursor = db.get_db().cursor()
+    cursor.execute('UPDATE patient SET phone = NULL WHERE patient_id = ?', (patientID,))
+    db.get_db().commit()
+    
+    response = make_response(jsonify({'message': 'Patient phone number deleted.'}))
+    response.status_code = 200
+    response.mimetype = 'application/json'
+    return response
