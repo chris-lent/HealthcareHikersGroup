@@ -5,26 +5,8 @@ from src import db
 
 patient = Blueprint('patient', __name__)
 
-# Get all patients from the DB
-@patient.route('/patient', methods=['GET'])
-def get_patients():
-    cursor = db.get_db().cursor()
-    cursor.execute('SELECT * FROM patient')
-    row_headers = [x[0] for x in cursor.description]
-    results = cursor.fetchall()
-    json_data = []
-    for result in results:
-        json_data.append(dict(zip(row_headers, result)))
-    response = make_response(jsonify(json_data))
-    response.status_code = 200
-    response.mimetype = 'application/json'
-    return response
-
-
 # GET request that retrieves all the treatment centers that support a 
 # patient's insurance plan, given the policy_id parameter
-
-medical_centers = Blueprint('medical_centers', __name__)
 @patient.route('/medical_center_insurance/<patientID>', methods=['GET'])
 def get_medical_centers_with_insurance_plan(patientID):
     print("Endpoint called!")
@@ -47,8 +29,8 @@ def get_medical_centers_with_insurance_plan(patientID):
     return response
 
     
-    #Return all treatment centers (center_id) that have a specific 
-    #specialization {service_id}
+#Return all treatment centers (center_id) that have a specific 
+#specialization {service_id}
 medical_centers = Blueprint('medical_centers', __name__)
 @patient.route('/medical_center_service/<serviceID>', methods=['GET'])
 def get_medical_centers_with_service(serviceID):
@@ -69,7 +51,7 @@ def get_medical_centers_with_service(serviceID):
     response.mimetype = 'application/json'
     return response
 
-medical_centers = Blueprint('medical_centers', __name__)
+# Getting the location based on the patients location
 @patient.route('/medical_center_location/<patientID>', methods=['GET'])
 def get_closest_medical_centers(patientID):
     print("Endpoint called!")
@@ -90,7 +72,6 @@ def get_closest_medical_centers(patientID):
     return response
 
 # Return availability for a {doc_id} with a specific specialty  {specialty_name)
-medical_centers = Blueprint('medical_centers', __name__)
 @patient.route('/doc_availability_by_service/<serviceID>', methods=['GET'])
 def get_doc_availability(serviceID):
     print("Endpoint called!")
@@ -126,8 +107,7 @@ def get_doc_availability(serviceID):
     return response 
 
 
-    # Return patient medical history.
-    medical_centers = Blueprint('medical_centers', __name__)
+# Return patient medical history.
 @patient.route('/medical_history/<patientID>', methods=['GET'])
 def get_patient_history(patientID):
     print("Endpoint called!")
@@ -152,3 +132,4 @@ def get_patient_history(patientID):
     response.status_code = 200
     response.mimetype = 'application/json'
     return response
+
