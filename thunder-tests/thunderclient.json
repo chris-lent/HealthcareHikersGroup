@@ -158,5 +158,43 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "2a01d40d-fb9e-4efd-ab00-5adb2570f448",
+    "colId": "43b18eb6-2b64-4144-8dee-2b967987e2bc",
+    "containerId": "",
+    "name": "Put (update) doctor's avalibility (doc_id = 16, sched_id = 196) for TUE",
+    "url": "localhost:8001/he/availibility/16-196",
+    "method": "PUT",
+    "sortNum": 150000,
+    "created": "2023-04-19T04:07:54.405Z",
+    "modified": "2023-04-19T04:17:56.471Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"day_of_week\": \"TUE\", \n  \"start_time\": \"12:00:00\", \n  \"end_time\": \"4:00:00\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "67012474-4066-4622-a025-4b15776c635e",
+    "colId": "43b18eb6-2b64-4144-8dee-2b967987e2bc",
+    "containerId": "",
+    "name": "Put (update) doctor's avalibility (doc_id = 53, sched_id = 68) for FRI",
+    "url": "localhost:8001/he/availibility/53-68",
+    "method": "PUT",
+    "sortNum": 190000,
+    "created": "2023-04-19T04:25:04.480Z",
+    "modified": "2023-04-19T04:27:53.629Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"day_of_week\": \"FRI\", \n  \"start_time\": \"9:00:00\", \n  \"end_time\": \"2:30:00\"\n}",
+      "form": []
+    },
+    "tests": []
   }
 ]
