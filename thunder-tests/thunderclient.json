@@ -484,5 +484,43 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "57fa02bb-ed58-40df-aba0-eb935f133642",
+    "colId": "25cac594-e080-4ccd-8aee-761df7b739e4",
+    "containerId": "",
+    "name": "update contact info",
+    "url": "localhost:8001/pt/update_contact_info/1-203",
+    "method": "PUT",
+    "sortNum": 140000,
+    "created": "2023-04-19T20:29:50.202Z",
+    "modified": "2023-04-19T20:35:17.730Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"phone\": \"(203) 6095719\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "0f8430f2-9782-4c31-9e71-62a21f8c788c",
+    "colId": "25cac594-e080-4ccd-8aee-761df7b739e4",
+    "containerId": "",
+    "name": "update contact info 2",
+    "url": "localhost:8001/pt/update_contact_info/2-123",
+    "method": "PUT",
+    "sortNum": 160000,
+    "created": "2023-04-19T20:33:09.068Z",
+    "modified": "2023-04-19T20:35:51.086Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"phone\": \"(123) 6095819\"\n}",
+      "form": []
+    },
+    "tests": []
   }
 ]
