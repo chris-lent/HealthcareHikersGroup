@@ -17,10 +17,11 @@ def get_insurance():
 
     cursor = db.get_db().cursor()
     cursor.execute('''
-        SELECT policy_id, plan_name
-        FROM insurance_plan ip JOIN
+        SELECT company_name, policy_id, plan_name
+        FROM insurance_company JOIN
+            (insurance_plan ip JOIN
             (SELECT policy_id FROM patient
-            WHERE patient_id = {0}) p USING(policy_id);
+            WHERE patient_id = {0}) p USING(policy_id)) USING (company_id);
     '''.format(patientID))
 
     # grab the column headers from the returned data
