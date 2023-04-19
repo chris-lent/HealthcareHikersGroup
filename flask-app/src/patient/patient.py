@@ -148,8 +148,7 @@ def update_contact_info(patientID, phone):
 
     current_app.logger.info(query)
 
-    #executing and commiting the inset 
-    statement
+    #executing and commiting the update statement
     cursor = db.get_db().cursor()
     cursor.execute(query)
     db.get_db().commit()
