@@ -74,6 +74,11 @@ CREATE TABLE IF NOT EXISTS insurance_rep (
   FOREIGN KEY (company_id) references insurance_company (company_id)
 );
 
+
+CREATE TABLE IF NOT EXISTS medical_history (
+  record_id INT PRIMARY KEY
+);
+
 CREATE TABLE IF NOT EXISTS patient (
   patient_id INT(11) NOT NULL,
   first_name VARCHAR(20) NOT NULL,
@@ -86,9 +91,11 @@ CREATE TABLE IF NOT EXISTS patient (
   zipcode VARCHAR(50) DEFAULT NULL,
   policy_id INT(11) DEFAULT NULL,
   insurance_rep_id INT(11) DEFAULT NULL,
+  record_id INT(11) DEFAULT NULL,
   PRIMARY KEY (patient_id),
   FOREIGN KEY (policy_id) REFERENCES insurance_plan (policy_id),
-  FOREIGN KEY (insurance_rep_id) REFERENCES insurance_rep (insurance_rep_id)
+  FOREIGN KEY (insurance_rep_id) REFERENCES insurance_rep (insurance_rep_id),
+  FOREIGN KEY (record_id) REFERENCES medical_history (record_id)
 );
 
 CREATE TABLE IF NOT EXISTS appointment (
@@ -98,12 +105,6 @@ CREATE TABLE IF NOT EXISTS appointment (
   doc_id INT,
   patient_id INT,
   FOREIGN KEY (doc_id) references medical_professional (doc_id),
-  FOREIGN KEY (patient_id) references patient (patient_id)
-);
-
-CREATE TABLE IF NOT EXISTS medical_history (
-  record_id INT PRIMARY KEY,
-  patient_id INT,
   FOREIGN KEY (patient_id) references patient (patient_id)
 );
 
