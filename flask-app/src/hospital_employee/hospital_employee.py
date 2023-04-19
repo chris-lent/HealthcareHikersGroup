@@ -90,7 +90,7 @@ def center_delete_service(centerID):
     return "Success!"
 
 # Updates doctor's avalibility
-@hospital_employee.route('/availibility/', methods=['PUT'])
+@hospital_employee.route('/availibility', methods=['PUT'])
 def update_avalibility():
 
     # collecting the data from the request object
