@@ -196,5 +196,81 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "6044e721-dae9-465c-995a-92ce2864198d",
+    "colId": "43b18eb6-2b64-4144-8dee-2b967987e2bc",
+    "containerId": "",
+    "name": "Post new insurance accepted (center_id = 10, policy_id = 6)",
+    "url": "localhost:8001/he/center_accepts_insurance_plan/10",
+    "method": "POST",
+    "sortNum": 210000,
+    "created": "2023-04-19T04:41:18.366Z",
+    "modified": "2023-04-19T04:52:11.331Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"policy_id\": 6\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "6a98a0ce-f53a-4171-86e6-316bc593b475",
+    "colId": "43b18eb6-2b64-4144-8dee-2b967987e2bc",
+    "containerId": "",
+    "name": "Post new insurance accepted (center_id = 21, policy_id = 30) ",
+    "url": "localhost:8001/he/center_accepts_insurance_plan/21",
+    "method": "DELETE",
+    "sortNum": 220000,
+    "created": "2023-04-19T04:51:15.915Z",
+    "modified": "2023-04-19T04:52:35.271Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"policy_id\": 30\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "c7312542-4d0e-4433-ac44-c342514f781d",
+    "colId": "43b18eb6-2b64-4144-8dee-2b967987e2bc",
+    "containerId": "",
+    "name": "Post new insurance accepted (center_id = 21, policy_id = 30) Copy",
+    "url": "localhost:8001/he/center_accepts_insurance_plan/21",
+    "method": "POST",
+    "sortNum": 215000,
+    "created": "2023-04-19T04:52:21.337Z",
+    "modified": "2023-04-19T04:54:46.131Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"policy_id\": 30\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "00517da7-4f86-40d0-b9a4-4ea6850b6745",
+    "colId": "43b18eb6-2b64-4144-8dee-2b967987e2bc",
+    "containerId": "",
+    "name": "Post new insurance accepted (center_id = 10, policy_id = 6) Copy Copy",
+    "url": "localhost:8001/he/center_accepts_insurance_plan/10",
+    "method": "DELETE",
+    "sortNum": 217500,
+    "created": "2023-04-19T04:52:41.730Z",
+    "modified": "2023-04-19T04:52:49.762Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"policy_id\": 6\n}",
+      "form": []
+    },
+    "tests": []
   }
 ]
