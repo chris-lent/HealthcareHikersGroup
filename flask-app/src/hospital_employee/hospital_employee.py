@@ -158,3 +158,25 @@ def delete_insurance(centerID):
     db.get_db().commit()
 
     return "Success!"
+
+# Add new services a medical professional offers
+@hospital_employee.route('/professional_specializes_service/<docID>', methods=['POST'])
+def add_new_services(docID):
+
+    # collecting the data from the request object
+    the_data = request.json 
+    current_app.logger.info(the_data)
+
+    # extracting the variable
+    serviceID = the_data['service_id']
+
+    # constructing the query
+    query = 'insert into professional_specializes_service values ({0},{1})'.format(serviceID, docID)
+    current_app.logger.info(query)
+
+    #executing and commiting the inset statement
+    cursor = db.get_db().cursor()
+    cursor.execute(query)
+    db.get_db().commit()
+
+    return "Success!"
