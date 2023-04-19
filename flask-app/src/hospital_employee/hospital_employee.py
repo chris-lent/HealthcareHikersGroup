@@ -6,8 +6,15 @@ from src import db
 hospital_employee = Blueprint('hospital_employee', __name__)
 
 # Get a patient’s (patient_id) current insurance plan (policy_id)
-@hospital_employee.route('/patient/<patientID>', methods=['GET'])
-def get_insurance(patientID):
+@hospital_employee.route('/patient', methods=['GET'])
+def get_insurance():
+    # collecting the data from the request object
+    the_data = request.json 
+    current_app.logger.info(the_data)
+
+    # extracting the variable
+    patientID = the_data['patient_id']
+
     cursor = db.get_db().cursor()
     cursor.execute('''
         SELECT plan_name
