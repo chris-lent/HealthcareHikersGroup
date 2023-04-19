@@ -90,8 +90,8 @@ def center_delete_service(centerID):
     return "Success!"
 
 # Updates doctor's avalibility
-@hospital_employee.route('/availibility/<docID>-<schedID>', methods=['PUT'])
-def update_avalibility(docID, schedID):
+@hospital_employee.route('/availibility/', methods=['PUT'])
+def update_avalibility():
 
     # collecting the data from the request object
     the_data = request.json 
@@ -99,6 +99,8 @@ def update_avalibility(docID, schedID):
 
     # extracting the variable
     # schedID = the_data['sched_id']
+    docID = the_data['doc_id']
+    schedID = the_data['sched_id']
     day = the_data['day_of_week']
     start = the_data['start_time']
     end = the_data['end_time']
