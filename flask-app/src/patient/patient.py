@@ -24,35 +24,37 @@ def get_patients():
 # patient's insurance plan, given the policy_id parameter
 
 medical_centers = Blueprint('medical_centers', __name__)
-@patient.route('/medical_center/<center_name>', methods=['GET'])
-def get_medical_centers():
-    query = ('''
-        SELECT center_name
-        FROM medical_center mc
-        JOIN center_accepts_insurance_plan ip on mc.center_id = ip.center_id
-        JOIN (SELECT policy_id from patient
-            WHERE patient_id = {0}) as p where p.policy_id = ip.policy_id
-    ''').format(patientID)
+@patient.route('/medical_centers/<patientID>', methods=['GET'])
+def get_medical_centers_with_insurance_plan(patientID):
+    print("Endpoint called!")
     cursor = db.get_db().cursor()
-    cursor.execute(query)
+    cursor.execute(''' SELECT center_name FROM medical_center 
+                        JOIN center_accepts_insurance_plan ip on medical_center.center_id = ip.center_id
+                        JOIN (SELECT policy_id from patient
+                        WHERE patient_id = {0}) as p where p.policy_id = ip.policy_id
+                        '''.format(patientID))
 
     # grab the column headers from the returned data
-    column_headers = [x[0] for x in cursor.description]
-
-    # create an empty dictionary object to use in 
-    # putting column headers together with data
+    row_headers = [x[0] for x in cursor.description]
+    results = cursor.fetchall()
     json_data = []
+    for result in results:
+        json_data.append(dict(zip(row_headers, result)))
+    response = make_response(jsonify(json_data))
+    response.status_code = 200
+    response.mimetype = 'application/json'
+    return response
 
-    # fetch all the data from the cursor
-    theData = cursor.fetchall()
     
-    # for each of the rows, zip the data elements together with
-    # the column headers. 
-    for row in theData:
-        json_data.append(dict(zip(column_headers, row)))
+    #Return all treatment centers (center_id) that have a specific 
+    #specialization {service_id}
 
-    return jsonify(json_data)
-    
+    #@patient.route('/medical_center/<center>', methods = ['GET'])
+    #def get_medical_centers_with_service():
+        #query = '''
+
+        #'''
+
      #centers = db.session.query(MedicalCenter).all()
      #result = []
      #for center in centers:
