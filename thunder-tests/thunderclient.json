@@ -522,5 +522,33 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "0c4d8af8-fc68-496f-bd72-63cc7d0fa22d",
+    "colId": "43b18eb6-2b64-4144-8dee-2b967987e2bc",
+    "containerId": "",
+    "name": "get insurance plans accepted at medical center",
+    "url": "localhost:8001/he/insurance_plans_accepted/20",
+    "method": "GET",
+    "sortNum": 290000,
+    "created": "2023-04-19T21:02:06.092Z",
+    "modified": "2023-04-19T21:06:57.255Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "21bd3c1e-c288-4422-b746-788ae108f624",
+    "colId": "43b18eb6-2b64-4144-8dee-2b967987e2bc",
+    "containerId": "",
+    "name": "get insurance plans accepted at medical center Copy",
+    "url": "localhost:8001/he/insurance_plans_accepted/10",
+    "method": "GET",
+    "sortNum": 300000,
+    "created": "2023-04-19T21:13:34.400Z",
+    "modified": "2023-04-19T21:13:40.112Z",
+    "headers": [],
+    "params": [],
+    "tests": []
   }
 ]

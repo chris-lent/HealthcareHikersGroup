@@ -167,6 +167,38 @@ def delete_insurance(centerID):
 
     return "Success!"
 
+# Get insurance plans accepted at a medical center
+@hospital_employee.route('/insurance_plans_accepted/<centerID>', methods=['GET'])
+def accepted_insurances(centerID):
+    # get a cursor object from the database
+    cursor = db.get_db().cursor()
+
+    # use cursor to query the database for a list of products
+    cursor.execute('''
+        SELECT company_name, policy_id, plan_name
+        FROM insurance_company JOIN
+            (insurance_plan ip JOIN
+            (SELECT policy_id FROM center_accepts_insurance_plan
+            WHERE center_id = {0}) p USING(policy_id)) USING (company_id);
+    '''.format(centerID))
+
+    # grab the column headers from the returned data
+    column_headers = [x[0] for x in cursor.description]
+
+    # create an empty dictionary object to use in 
+    # putting column headers together with data
+    json_data = []
+
+    # fetch all the data from the cursor
+    theData = cursor.fetchall()
+    
+    # for each of the rows, zip the data elements together with
+    # the column headers. 
+    for row in theData:
+        json_data.append(dict(zip(column_headers, row)))
+
+    return jsonify(json_data)
+
 # Add new services a medical professional offers
 @hospital_employee.route('/professional_specializes_service/<docID>', methods=['POST'])
 def add_new_services(docID):
