@@ -408,7 +408,7 @@
     "method": "POST",
     "sortNum": 230000,
     "created": "2023-04-19T14:22:17.292Z",
-    "modified": "2023-04-19T14:27:09.878Z",
+    "modified": "2023-04-19T15:27:57.389Z",
     "headers": [],
     "params": [],
     "body": {
@@ -433,6 +433,44 @@
     "body": {
       "type": "json",
       "raw": "{\n  \"service_id\": 19\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "7b69f238-ccf3-49b7-8d96-a1b0e284cc88",
+    "colId": "43b18eb6-2b64-4144-8dee-2b967987e2bc",
+    "containerId": "",
+    "name": "Post new services a medical professional (doc_id = 100) specializes in",
+    "url": "localhost:8001/he/professional_specializes_service/100",
+    "method": "POST",
+    "sortNum": 270000,
+    "created": "2023-04-19T15:27:40.957Z",
+    "modified": "2023-04-19T15:28:28.561Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"service_id\": 32\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "0ee34338-e826-4b1e-9baa-4accf98ff884",
+    "colId": "43b18eb6-2b64-4144-8dee-2b967987e2bc",
+    "containerId": "",
+    "name": "Delete services a medical provider (doc_id = 100) offers",
+    "url": "localhost:8001/he/professional_specializes_service/100",
+    "method": "DELETE",
+    "sortNum": 280000,
+    "created": "2023-04-19T15:29:12.574Z",
+    "modified": "2023-04-19T15:29:31.007Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"service_id\": 32\n}",
       "form": []
     },
     "tests": []
