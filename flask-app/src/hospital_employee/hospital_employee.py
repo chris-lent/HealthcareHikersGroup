@@ -80,3 +80,33 @@ def delete_service(centerID):
     db.get_db().commit()
 
     return "Success!"
+
+# Updates doctor's avalibility
+@hospital_employee.route('/availibility/<docID>', methods=['PUT'])
+def update_avalibility(docID):
+
+    # collecting the data from the request object
+    the_data = request.json 
+    current_app.logger.info(the_data)
+
+    # extracting the variable
+    schedID = the_data['schedule_id']
+    day = the_data['day_of_week']
+    start = the_data['start_time']
+    end = the_data['end_time']
+
+    # constructing the query
+    query = '''
+        UPDATE availability
+        SET day_of_week = {}, start_time = {}, end_time = {}
+        WHERE doc_id = {} AND sched_id = {};
+    '''.format(day, start, end, docID, schedID)
+
+    current_app.logger.info(query)
+
+    #executing and commiting the inset statement
+    cursor = db.get_db().cursor()
+    cursor.execute(query)
+    db.get_db().commit()
+
+    return "Success!"
