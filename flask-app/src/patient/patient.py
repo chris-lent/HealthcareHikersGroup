@@ -124,3 +124,31 @@ def get_doc_availability(serviceID):
     response.status_code = 200
     response.mimetype = 'application/json'
     return response 
+
+
+    # Return patient medical history.
+    medical_centers = Blueprint('medical_centers', __name__)
+@patient.route('/medical_history/<patientID>', methods=['GET'])
+def get_patient_history(patientID):
+    print("Endpoint called!")
+    cursor = db.get_db().cursor()
+    cursor.execute(''' select patient_id,immunization_name, prescribed_medications,
+                       fam_condition, past_procedure, allergy FROM medical_history mh
+                       LEFT JOIN immunizations AS i ON mh.record_id = i.record_id
+                       LEFT JOIN medications AS m ON mh.record_id = m.record_id
+                       LEFT JOIN family_conditions AS fc ON mh.record_id = fc.record_id
+                       LEFT JOIN procedures AS pr ON mh.record_id = pr.record_id
+                       LEFT JOIN allergies AS a ON mh.record_id = a.record_id
+                       WHERE patient_id = {0}
+                        '''.format(patientID))
+
+    # grab the column headers from the returned data
+    row_headers = [x[0] for x in cursor.description]
+    results = cursor.fetchall()
+    json_data = []
+    for result in results:
+        json_data.append(dict(zip(row_headers, result)))
+    response = make_response(jsonify(json_data))
+    response.status_code = 200
+    response.mimetype = 'application/json'
+    return response
