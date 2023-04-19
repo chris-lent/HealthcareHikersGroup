@@ -24,7 +24,7 @@ def get_patients():
 # patient's insurance plan, given the policy_id parameter
 
 medical_centers = Blueprint('medical_centers', __name__)
-@patient.route('/medical_centers/<patientID>', methods=['GET'])
+@patient.route('/medical_center_insurance/<patientID>', methods=['GET'])
 def get_medical_centers_with_insurance_plan(patientID):
     print("Endpoint called!")
     cursor = db.get_db().cursor()
@@ -48,25 +48,25 @@ def get_medical_centers_with_insurance_plan(patientID):
     
     #Return all treatment centers (center_id) that have a specific 
     #specialization {service_id}
+medical_centers = Blueprint('medical_centers', __name__)
+@patient.route('/medical_center_service/<serviceID>', methods=['GET'])
+def get_medical_centers_with_service(serviceID):
+    print("Endpoint called!")
+    cursor = db.get_db().cursor()
+    cursor.execute(''' select center_name from medical_center mc
+                        JOIN (select * from center_offers_services WHERE service_id = {0})
+                         as cos WHERE mc.center_id = cos.center_id'''.format(serviceID))
 
-    #@patient.route('/medical_center/<center>', methods = ['GET'])
-    #def get_medical_centers_with_service():
-        #query = '''
-
-        #'''
-
-     #centers = db.session.query(MedicalCenter).all()
-     #result = []
-     #for center in centers:
-         #center_data = {
-            #'center_id': center.center_id,
-            # 'center_name': center.center_name,
-             #'street_address': center.street_address,
-             #'state': center.state,
-            # 'city': center.city,
-            # 'zipcode': center.zipcode,
-            # 'phone': center.phone
-         #}
+    # grab the column headers from the returned data
+    row_headers = [x[0] for x in cursor.description]
+    results = cursor.fetchall()
+    json_data = []
+    for result in results:
+        json_data.append(dict(zip(row_headers, result)))
+    response = make_response(jsonify(json_data))
+    response.status_code = 200
+    response.mimetype = 'application/json'
+    return response
 
 #         # Get the services offered by the center
 #         services = db.session.query(Service).join(CenterOffersService).filter(CenterOffersService.center_id == center.center_id).all()
