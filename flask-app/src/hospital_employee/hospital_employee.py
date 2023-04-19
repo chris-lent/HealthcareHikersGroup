@@ -97,9 +97,10 @@ def update_avalibility(docID):
 
     # constructing the query
     query = '''
-        DELETE FROM center_offers_services 
-        WHERE center_id = {0} AND service_id = {1}
-    '''.format(docID, schedID, day)
+        UPDATE availability
+        SET day_of_week = {}, start_time = {}, end_time = {}
+        WHERE doc_id = {} AND sched_id = {};
+    '''.format(day, start, end, docID, schedID)
 
     current_app.logger.info(query)
 
