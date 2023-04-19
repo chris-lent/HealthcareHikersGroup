@@ -35,7 +35,7 @@ def get_insurance(patientID):
 
 # Add services the center offers
 @hospital_employee.route('/center_offers_services/<centerID>', methods=['POST'])
-def add_new_service(centerID):
+def center_add_new_service(centerID):
 
     # collecting the data from the request object
     the_data = request.json 
@@ -57,7 +57,7 @@ def add_new_service(centerID):
 
 # Delete services the center offers
 @hospital_employee.route('/center_offers_services/<centerID>', methods=['DELETE'])
-def delete_service(centerID):
+def center_delete_service(centerID):
 
     # collecting the data from the request object
     the_data = request.json 
@@ -172,6 +172,32 @@ def add_new_services(docID):
 
     # constructing the query
     query = 'insert into professional_specializes_service values ({0},{1})'.format(serviceID, docID)
+    current_app.logger.info(query)
+
+    #executing and commiting the inset statement
+    cursor = db.get_db().cursor()
+    cursor.execute(query)
+    db.get_db().commit()
+
+    return "Success!"
+
+# Delete services a medical professional offers
+@hospital_employee.route('/professional_specializes_service/<docID>', methods=['DELETE'])
+def delete_services(docID):
+
+    # collecting the data from the request object
+    the_data = request.json 
+    current_app.logger.info(the_data)
+
+    # extracting the variable
+    serviceID = the_data['service_id']
+
+    # constructing the query
+    query = '''
+        DELETE FROM professional_specializes_service 
+        WHERE doc_id = {0} AND service_id = {1}
+    '''.format(docID, serviceID)
+
     current_app.logger.info(query)
 
     #executing and commiting the inset statement
