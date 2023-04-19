@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify, make_response, current_app
+from flask import Blueprint, request, jsonify, make_response
 from datetime import timedelta
 import json
 from src import db
@@ -7,7 +7,7 @@ patient = Blueprint('patient', __name__)
 
 # GET request that retrieves all the treatment centers that support a 
 # patient's insurance plan, given the policy_id parameter
-@patient.route('/update_contact_info/<patientID>', methods=['GET'])
+@patient.route('/medical_center_insurance/<patientID>', methods=['GET'])
 def get_medical_centers_with_insurance_plan(patientID):
     print("Endpoint called!")
     cursor = db.get_db().cursor()
@@ -133,26 +133,5 @@ def get_patient_history(patientID):
     response.mimetype = 'application/json'
     return response
 
-# update patient contact information
-@patient.route('/update_contact_info/<int:patientID>-<phone>', methods=['PUT'])
-def update_contact_info(patientID, phone):
-    print("Endpoint called!")
-    # collecting the data from the request object
-    the_data = request.json 
-    current_app.logger.info(the_data)
-
-    query = '''
-        UPDATE patient
-        SET phone = '{1}' WHERE patient_id = {0}
-    '''.format(patientID, phone)
-
-    current_app.logger.info(query)
-
-    #executing and commiting the update statement
-    cursor = db.get_db().cursor()
-    cursor.execute(query)
-    db.get_db().commit()
-
-    return "Success!"
 
 
