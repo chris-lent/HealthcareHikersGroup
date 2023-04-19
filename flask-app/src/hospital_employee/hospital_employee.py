@@ -17,7 +17,7 @@ def get_insurance():
 
     cursor = db.get_db().cursor()
     cursor.execute('''
-        SELECT plan_name
+        SELECT policy_id, plan_name
         FROM insurance_plan ip JOIN
             (SELECT policy_id FROM patient
             WHERE patient_id = {0}) p USING(policy_id);
