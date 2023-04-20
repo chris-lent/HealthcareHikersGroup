@@ -598,5 +598,43 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "088a8415-6629-4846-97fe-4e183f5fa321",
+    "colId": "25cac594-e080-4ccd-8aee-761df7b739e4",
+    "containerId": "",
+    "name": "input patient allergy",
+    "url": "localhost:8001/pt//input_patient_allergies/1",
+    "method": "POST",
+    "sortNum": 170000,
+    "created": "2023-04-20T14:23:50.281Z",
+    "modified": "2023-04-20T15:05:21.171Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"service_id\" : \"cookie\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "78fcf0a5-fca2-4ea2-a14d-b0d004c02990",
+    "colId": "25cac594-e080-4ccd-8aee-761df7b739e4",
+    "containerId": "",
+    "name": "delete patient contact",
+    "url": "localhost:8001/pt/delete_patient_medication/15",
+    "method": "DELETE",
+    "sortNum": 180000,
+    "created": "2023-04-20T15:06:50.458Z",
+    "modified": "2023-04-20T15:14:39.122Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"medication_name\" : \"oxybutynin chloride\"\n}",
+      "form": []
+    },
+    "tests": []
   }
 ]

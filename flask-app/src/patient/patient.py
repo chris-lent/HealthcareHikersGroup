@@ -155,52 +155,51 @@ def update_contact_info(patientID, phone):
 
     return "Success!"
 
-
-# Input patient contact information.
-@patient.route('/input_contact_info/<patientID>', methods=['POST'])
-def input_patient_contact_info(patientID):
-    print("Endpoint called!")
-    data = request.get_json()
-    phone_number = data.get('phone_number')
-    
-    cursor = db.get_db().cursor()
-    cursor.execute('UPDATE patient SET phone = ? WHERE patient_id = ?', 
-                   (phone_number, patientID))
-    db.get_db().commit()
-    
-    response = make_response(jsonify({'message': 'Patient phoe number updated.'}))
-    response.status_code = 200
-    response.mimetype = 'application/json'
-    return response
-
 # Input patient allergy.
 @patient.route('/input_patient_allergies/<recordID>', methods=['POST'])
 def input_patient_allergies(recordID):
-    print("Endpoint called!")
-    data = request.json
-    allergies = data['allergies']
 
+    # collecting the data from the request object
+    the_data = request.json 
+    current_app.logger.info(the_data)
+
+    # extracting the variable
+    allergy = the_data['allergy']
+
+    # constructing the query
+    query = 'insert into allergies values ({0},"{1}")'.format(recordID, allergy)
+    current_app.logger.info(query)
+
+    #executing and commiting the inset statement
     cursor = db.get_db().cursor()
-    for allergy in allergies:
-        cursor.execute('INSERT INTO allergies (record_id, allergy) VALUES (?, ?)', (recordID, allergy))
+    cursor.execute(query)
     db.get_db().commit()
 
-    response = make_response(jsonify({'message': 'Patient allergies added successfully.'}))
-    response.status_code = 200
-    response.mimetype = 'application/json'
-    return response
+    return "Success!"
 
-
-# Delete patient phone number.
-@patient.route('/delete_patient_phone/<patientID>', methods=['DELETE'])
-def delete_patient_phone(patientID):
-    print("Endpoint called!")
-    cursor = db.get_db().cursor()
-    cursor.execute('UPDATE patient SET phone = NULL WHERE patient_id = ?', (patientID,))
-    db.get_db().commit()
     
-    response = make_response(jsonify({'message': 'Patient phone number deleted.'}))
-    response.status_code = 200
-    response.mimetype = 'application/json'
-    return response
-testweb
+# Delete patient medication.
+@patient.route('/delete_patient_medication/<recordID>', methods=['DELETE'])
+def delete_patient_medication(recordID):
+
+    # collecting the data from the request object
+    the_data = request.json 
+    current_app.logger.info(the_data)
+
+    # extracting the variable
+    medication_name = the_data['medication_name']
+
+    # constructing the query
+    query = '''
+        DELETE FROM medications 
+        WHERE record_id = {0} AND prescribed_medications = "{1}"
+    '''.format(recordID, medication_name)
+
+    current_app.logger.info(query)
+
+    #executing and commiting the inset statement
+    cursor = db.get_db().cursor()
+    cursor.execute(query)
+    db.get_db().commit()
+
+    return "Success!"
