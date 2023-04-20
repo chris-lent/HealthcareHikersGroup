@@ -210,9 +210,9 @@ def input_patient_allergies():
     return "Success!"
 
     
-# Delete patient medication.
+# Delete patient allergy.
 @patient.route('/delete_patient_allergy', methods=['DELETE'])
-def delete_patient_medication():
+def delete_patient_allergy():
 
     # collecting the data from the request object
     the_data = request.json 
@@ -238,3 +238,51 @@ def delete_patient_medication():
     return "Success!"
 
 
+# Input patient medication.
+@patient.route('/input_patient_medication', methods=['POST'])
+def input_patient_medication():
+
+    # collecting the data from the request object
+    the_data = request.json 
+    current_app.logger.info(the_data)
+    # extracting the variable
+    recordID = the_data.get('recordID')
+    medication = the_data.get('medication')
+
+    # constructing the query
+    query = 'insert into medications values ({0},"{1}")'.format(recordID, medication)
+    current_app.logger.info(query)
+
+    #executing and commiting the inset statement
+    cursor = db.get_db().cursor()
+    cursor.execute(query)
+    db.get_db().commit()
+
+    return "Success!"
+
+    # Delete patient medication.
+@patient.route('/delete_patient_medication', methods=['DELETE'])
+def delete_patient_medication():
+
+    # collecting the data from the request object
+    the_data = request.json 
+    current_app.logger.info(the_data)
+
+    # extracting the variable
+    medication = the_data.get('medication')
+    recordID = the_data.get('recordID')
+
+    # constructing the query
+    query = '''
+        DELETE FROM medications 
+        WHERE record_id = {0} AND prescribed_medications = "{1}"
+    '''.format(recordID, medication)
+
+    current_app.logger.info(query)
+
+    #executing and commiting the inset statement
+    cursor = db.get_db().cursor()
+    cursor.execute(query)
+    db.get_db().commit()
+
+    return "Success!"

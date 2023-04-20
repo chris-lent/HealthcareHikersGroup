@@ -688,25 +688,6 @@
     "tests": []
   },
   {
-    "_id": "7d1fafe1-bc4e-4374-ab8d-1424549c3f93",
-    "colId": "25cac594-e080-4ccd-8aee-761df7b739e4",
-    "containerId": "",
-    "name": "input patient allergy Copy",
-    "url": "localhost:8001/pt//input_patient_allergies/7",
-    "method": "POST",
-    "sortNum": 175000,
-    "created": "2023-04-20T15:21:32.791Z",
-    "modified": "2023-04-20T15:21:55.915Z",
-    "headers": [],
-    "params": [],
-    "body": {
-      "type": "json",
-      "raw": "{\n  \"allergy\" : \"wasps\"\n}",
-      "form": []
-    },
-    "tests": []
-  },
-  {
     "_id": "6639d3a3-b572-4386-911b-7d2706d3dc95",
     "colId": "25cac594-e080-4ccd-8aee-761df7b739e4",
     "containerId": "",
@@ -759,6 +740,101 @@
     "body": {
       "type": "json",
       "raw": "{\n  \"service_id\": 50\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "bd844d3b-ea09-4365-a62b-1c471bbc216a",
+    "colId": "25cac594-e080-4ccd-8aee-761df7b739e4",
+    "containerId": "",
+    "name": "input patient allergy Copy",
+    "url": "localhost:8001/pt/input_patient_allergies",
+    "method": "POST",
+    "sortNum": 172500,
+    "created": "2023-04-20T23:13:24.391Z",
+    "modified": "2023-04-20T23:13:24.391Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"recordID\" : 1,\n  \"allergy\" : \"cats\"\n}\n",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "7a659de2-59c6-4149-ac91-7174eb672f5a",
+    "colId": "25cac594-e080-4ccd-8aee-761df7b739e4",
+    "containerId": "",
+    "name": "input patient medication",
+    "url": "localhost:8001/pt/input_patient_medication",
+    "method": "POST",
+    "sortNum": 200000,
+    "created": "2023-04-20T23:13:40.172Z",
+    "modified": "2023-04-20T23:17:18.476Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"recordID\" : 1,\n  \"medication\": \"Isotretinoin\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "1d611eac-ef95-46b4-84af-5bdb7e003ea8",
+    "colId": "25cac594-e080-4ccd-8aee-761df7b739e4",
+    "containerId": "",
+    "name": "delete patient medication",
+    "url": "localhost:8001/pt/delete_patient_medication",
+    "method": "DELETE",
+    "sortNum": 210000,
+    "created": "2023-04-20T23:13:58.026Z",
+    "modified": "2023-04-20T23:17:55.569Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"recordID\" : 1,\n  \"medication\": \"Isotretinoin\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "4f878353-2e14-41fc-8924-469357458262",
+    "colId": "25cac594-e080-4ccd-8aee-761df7b739e4",
+    "containerId": "",
+    "name": "input patient medication Copy",
+    "url": "localhost:8001/pt/input_patient_medication",
+    "method": "POST",
+    "sortNum": 205000,
+    "created": "2023-04-20T23:18:33.429Z",
+    "modified": "2023-04-20T23:18:52.389Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"recordID\" : 2,\n  \"medication\": \"Metformin\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "c74a3b5f-0790-4338-9e23-29ec2730ad28",
+    "colId": "25cac594-e080-4ccd-8aee-761df7b739e4",
+    "containerId": "",
+    "name": "delete patient medication Copy",
+    "url": "localhost:8001/pt/delete_patient_medication",
+    "method": "DELETE",
+    "sortNum": 220000,
+    "created": "2023-04-20T23:18:55.325Z",
+    "modified": "2023-04-20T23:19:04.918Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"recordID\" : 2,\n  \"medication\": \"Metformin\"\n}",
       "form": []
     },
     "tests": []
