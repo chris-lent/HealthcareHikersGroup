@@ -7,9 +7,15 @@ patient = Blueprint('patient', __name__)
 
 # GET request that retrieves all the treatment centers that support a 
 # patient's insurance plan, given the policy_id parameter
-@patient.route('/medical_center_insurance/<patientID>', methods=['GET'])
-def get_medical_centers_with_insurance_plan(patientID):
+@patient.route('/medical_center_insurance', methods=['GET'])
+def get_medical_centers_with_insurance_plan():
     print("Endpoint called!")
+    # collecting the data from the request object
+    the_data = request.json 
+    current_app.logger.info(the_data)
+
+    # extracting the variable
+    patientID = the_data["patientID"]
     cursor = db.get_db().cursor()
     cursor.execute(''' SELECT center_name FROM medical_center 
                         JOIN center_accepts_insurance_plan ip on medical_center.center_id = ip.center_id
@@ -204,4 +210,4 @@ def delete_patient_medication(recordID):
 
     return "Success!"
 
-    
+
