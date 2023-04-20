@@ -84,16 +84,16 @@
     "colId": "43b18eb6-2b64-4144-8dee-2b967987e2bc",
     "containerId": "",
     "name": "Post new service (serviceID 200) for Center (centerID 5)",
-    "url": "localhost:8001/he/center_offers_services/5",
+    "url": "localhost:8001/he/center_offers_services",
     "method": "POST",
     "sortNum": 40000,
     "created": "2023-04-18T19:16:44.068Z",
-    "modified": "2023-04-18T19:32:25.094Z",
+    "modified": "2023-04-20T17:09:42.502Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"service_id\": 200\n}",
+      "raw": "{\n  \"center_id\": 5,\n  \"service_id\": 200\n}",
       "form": []
     },
     "tests": []
@@ -103,16 +103,16 @@
     "colId": "43b18eb6-2b64-4144-8dee-2b967987e2bc",
     "containerId": "",
     "name": "Post new service (serviceID 160) for Center (centerID 25)",
-    "url": "localhost:8001/he/center_offers_services/25",
+    "url": "localhost:8001/he/center_offers_services",
     "method": "POST",
     "sortNum": 80000,
     "created": "2023-04-18T19:22:15.842Z",
-    "modified": "2023-04-18T19:32:30.404Z",
+    "modified": "2023-04-20T17:10:20.644Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"service_id\": 160\n}",
+      "raw": "{\n  \"center_id\": 25,\n  \"service_id\": 160\n}",
       "form": []
     },
     "tests": []
@@ -122,16 +122,16 @@
     "colId": "43b18eb6-2b64-4144-8dee-2b967987e2bc",
     "containerId": "",
     "name": "Delete service (serviceID 200) for Center (centerID 5)",
-    "url": "localhost:8001/he/center_offers_services/25",
+    "url": "localhost:8001/he/center_offers_services",
     "method": "DELETE",
     "sortNum": 100000,
     "created": "2023-04-18T19:33:30.077Z",
-    "modified": "2023-04-18T19:33:50.789Z",
+    "modified": "2023-04-20T17:10:34.522Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"service_id\": 160\n}",
+      "raw": "{\n  \"center_id\": 25,\n  \"service_id\": 160\n}",
       "form": []
     },
     "tests": []
@@ -141,16 +141,16 @@
     "colId": "43b18eb6-2b64-4144-8dee-2b967987e2bc",
     "containerId": "",
     "name": "Delete new service (serviceID 200) for Center (centerID 5)",
-    "url": "localhost:8001/he/center_offers_services/5",
+    "url": "localhost:8001/he/center_offers_services",
     "method": "DELETE",
     "sortNum": 110000,
     "created": "2023-04-18T19:36:39.001Z",
-    "modified": "2023-04-18T19:37:37.682Z",
+    "modified": "2023-04-20T17:09:57.378Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"service_id\": 200\n}",
+      "raw": "{\n  \"center_id\": 5,\n  \"service_id\": 200\n}",
       "form": []
     },
     "tests": []
@@ -414,16 +414,16 @@
     "colId": "43b18eb6-2b64-4144-8dee-2b967987e2bc",
     "containerId": "",
     "name": "Post new services a medical professional (doc_id = 80) specializes in",
-    "url": "localhost:8001/he/professional_specializes_service/80",
+    "url": "localhost:8001/he/professional_specializes_service",
     "method": "POST",
     "sortNum": 230000,
     "created": "2023-04-19T14:22:17.292Z",
-    "modified": "2023-04-19T15:27:57.389Z",
+    "modified": "2023-04-20T17:07:34.508Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"service_id\": 19\n}",
+      "raw": "{\n  \"doc_id\": 80,\n  \"service_id\": 19\n}",
       "form": []
     },
     "tests": []
@@ -433,16 +433,16 @@
     "colId": "43b18eb6-2b64-4144-8dee-2b967987e2bc",
     "containerId": "",
     "name": "Delete services a medical provider (doc_id = 80) offers",
-    "url": "localhost:8001/he/professional_specializes_service/80",
+    "url": "localhost:8001/he/professional_specializes_service",
     "method": "DELETE",
     "sortNum": 240000,
     "created": "2023-04-19T14:30:06.455Z",
-    "modified": "2023-04-19T14:30:20.272Z",
+    "modified": "2023-04-20T17:07:42.564Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"service_id\": 19\n}",
+      "raw": "{\n  \"doc_id\": 80,\n  \"service_id\": 19\n}",
       "form": []
     },
     "tests": []
@@ -452,16 +452,16 @@
     "colId": "43b18eb6-2b64-4144-8dee-2b967987e2bc",
     "containerId": "",
     "name": "Post new services a medical professional (doc_id = 100) specializes in",
-    "url": "localhost:8001/he/professional_specializes_service/100",
+    "url": "localhost:8001/he/professional_specializes_service",
     "method": "POST",
     "sortNum": 270000,
     "created": "2023-04-19T15:27:40.957Z",
-    "modified": "2023-04-19T15:28:28.561Z",
+    "modified": "2023-04-20T17:08:02.323Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"service_id\": 32\n}",
+      "raw": "{\n  \"doc_id\": 100,\n  \"service_id\": 32\n}",
       "form": []
     },
     "tests": []
@@ -471,16 +471,16 @@
     "colId": "43b18eb6-2b64-4144-8dee-2b967987e2bc",
     "containerId": "",
     "name": "Delete services a medical provider (doc_id = 100) offers",
-    "url": "localhost:8001/he/professional_specializes_service/100",
+    "url": "localhost:8001/he/professional_specializes_service",
     "method": "DELETE",
     "sortNum": 280000,
     "created": "2023-04-19T15:29:12.574Z",
-    "modified": "2023-04-19T15:29:31.007Z",
+    "modified": "2023-04-20T17:08:11.901Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"service_id\": 32\n}",
+      "raw": "{\n  \"doc_id\": 100,\n  \"service_id\": 32\n}",
       "form": []
     },
     "tests": []
@@ -595,82 +595,6 @@
     "body": {
       "type": "json",
       "raw": "{\n  \"center_id\": 10\n}",
-      "form": []
-    },
-    "tests": []
-  },
-  {
-    "_id": "088a8415-6629-4846-97fe-4e183f5fa321",
-    "colId": "25cac594-e080-4ccd-8aee-761df7b739e4",
-    "containerId": "",
-    "name": "input patient allergy",
-    "url": "localhost:8001/pt//input_patient_allergies/1",
-    "method": "POST",
-    "sortNum": 170000,
-    "created": "2023-04-20T14:23:50.281Z",
-    "modified": "2023-04-20T15:22:06.523Z",
-    "headers": [],
-    "params": [],
-    "body": {
-      "type": "json",
-      "raw": "{\n  \"allergy\" : \"cookie\"\n}",
-      "form": []
-    },
-    "tests": []
-  },
-  {
-    "_id": "78fcf0a5-fca2-4ea2-a14d-b0d004c02990",
-    "colId": "25cac594-e080-4ccd-8aee-761df7b739e4",
-    "containerId": "",
-    "name": "delete patient contact",
-    "url": "localhost:8001/pt/delete_patient_medication/15",
-    "method": "DELETE",
-    "sortNum": 180000,
-    "created": "2023-04-20T15:06:50.458Z",
-    "modified": "2023-04-20T15:14:39.122Z",
-    "headers": [],
-    "params": [],
-    "body": {
-      "type": "json",
-      "raw": "{\n  \"medication_name\" : \"oxybutynin chloride\"\n}",
-      "form": []
-    },
-    "tests": []
-  },
-  {
-    "_id": "7d1fafe1-bc4e-4374-ab8d-1424549c3f93",
-    "colId": "25cac594-e080-4ccd-8aee-761df7b739e4",
-    "containerId": "",
-    "name": "input patient allergy Copy",
-    "url": "localhost:8001/pt//input_patient_allergies/7",
-    "method": "POST",
-    "sortNum": 175000,
-    "created": "2023-04-20T15:21:32.791Z",
-    "modified": "2023-04-20T15:21:55.915Z",
-    "headers": [],
-    "params": [],
-    "body": {
-      "type": "json",
-      "raw": "{\n  \"allergy\" : \"wasps\"\n}",
-      "form": []
-    },
-    "tests": []
-  },
-  {
-    "_id": "6639d3a3-b572-4386-911b-7d2706d3dc95",
-    "colId": "25cac594-e080-4ccd-8aee-761df7b739e4",
-    "containerId": "",
-    "name": "delete patient contact Copy",
-    "url": "localhost:8001/pt/delete_patient_medication/57",
-    "method": "DELETE",
-    "sortNum": 190000,
-    "created": "2023-04-20T15:22:32.299Z",
-    "modified": "2023-04-20T15:22:53.442Z",
-    "headers": [],
-    "params": [],
-    "body": {
-      "type": "json",
-      "raw": "{\n  \"medication_name\" : \"Acetaminophen\"\n}",
       "form": []
     },
     "tests": []

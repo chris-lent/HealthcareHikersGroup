@@ -43,14 +43,15 @@ def get_insurance():
     return jsonify(json_data)
 
 # Add services the center offers
-@hospital_employee.route('/center_offers_services/<centerID>', methods=['POST'])
-def center_add_new_service(centerID):
+@hospital_employee.route('/center_offers_services', methods=['POST'])
+def center_add_new_service():
 
     # collecting the data from the request object
     the_data = request.json 
     current_app.logger.info(the_data)
 
     # extracting the variable
+    centerID = the_data["center_id"]
     serviceCode = the_data['service_id']
 
     # constructing the query
@@ -65,14 +66,15 @@ def center_add_new_service(centerID):
     return "Success!"
 
 # Delete services the center offers
-@hospital_employee.route('/center_offers_services/<centerID>', methods=['DELETE'])
-def center_delete_service(centerID):
+@hospital_employee.route('/center_offers_services', methods=['DELETE'])
+def center_delete_service():
 
     # collecting the data from the request object
     the_data = request.json 
     current_app.logger.info(the_data)
 
     # extracting the variable
+    centerID = the_data["center_id"]
     serviceCode = the_data['service_id']
 
     # constructing the query
@@ -254,14 +256,15 @@ def accepted_insurances():
     return jsonify(json_data)
 
 # Add new services a medical professional offers
-@hospital_employee.route('/professional_specializes_service/<docID>', methods=['POST'])
-def add_new_services(docID):
+@hospital_employee.route('/professional_specializes_service', methods=['POST'])
+def add_new_services():
 
     # collecting the data from the request object
     the_data = request.json 
     current_app.logger.info(the_data)
 
     # extracting the variable
+    docID = the_data['doc_id']
     serviceID = the_data['service_id']
 
     # constructing the query
@@ -276,14 +279,15 @@ def add_new_services(docID):
     return "Success!"
 
 # Delete services a medical professional offers
-@hospital_employee.route('/professional_specializes_service/<docID>', methods=['DELETE'])
-def delete_services(docID):
+@hospital_employee.route('/professional_specializes_service', methods=['DELETE'])
+def delete_services():
 
     # collecting the data from the request object
     the_data = request.json 
     current_app.logger.info(the_data)
 
     # extracting the variable
+    docID = the_data['doc_id']
     serviceID = the_data['service_id']
 
     # constructing the query
