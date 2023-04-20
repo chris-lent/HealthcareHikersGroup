@@ -838,5 +838,43 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "48df6e92-18c6-4492-8bfa-6e2cde8bd4ca",
+    "colId": "25cac594-e080-4ccd-8aee-761df7b739e4",
+    "containerId": "",
+    "name": "get patient medications",
+    "url": "localhost:8001/pt/get_patient_allergies",
+    "method": "GET",
+    "sortNum": 220000,
+    "created": "2023-04-20T23:33:06.831Z",
+    "modified": "2023-04-20T23:36:52.620Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"patientID\" : 15\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "51902675-60a2-4666-a0d5-fdd8a2ac20f7",
+    "colId": "25cac594-e080-4ccd-8aee-761df7b739e4",
+    "containerId": "",
+    "name": "get patient allergies",
+    "url": "localhost:8001/pt/get_patient_medications",
+    "method": "GET",
+    "sortNum": 230000,
+    "created": "2023-04-20T23:36:26.993Z",
+    "modified": "2023-04-20T23:36:26.993Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"patientID\" : 15\n}",
+      "form": []
+    },
+    "tests": []
   }
 ]

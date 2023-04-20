@@ -100,7 +100,7 @@ def get_doc_availability():
 
     # extracting the variable
     serviceName = the_data["serviceName"]
-    cursor.execute(''' SELECT a.doc_id, day_of_week, start_time, end_time 
+    cursor.execute(''' SELECT mp.first_name, mp.last_name, a.doc_id, day_of_week, start_time, end_time 
                        FROM availability a
                        JOIN medical_professional AS mp ON a.doc_id = mp.doc_id
                        JOIN professional_specializes_service pss on mp.doc_id = pss.doc_id
@@ -112,13 +112,15 @@ def get_doc_availability():
     results = cursor.fetchall()
     json_data = []
     for result in results:
-        start_time_str = str(result[2])
-        end_time_str = str(result[3])
+        start_time_str = str(result[4])
+        end_time_str = str(result[5])
 
         # Include the strings in the JSON data
         result_dict = {
-            'doc_id': result[0],
-            'day_of_week': result[1],
+            'first_name': result[0],
+            'last_name': result[1],
+            'doc_id': result[2],
+            'day_of_week': result[3],
             'start_time': start_time_str,
             'end_time': end_time_str
         }
@@ -130,10 +132,9 @@ def get_doc_availability():
     response.mimetype = 'application/json'
     return response  
 
-
-# Return patient medical history.
-@patient.route('/medical_history', methods=['GET'])
-def get_patient_history():
+# Return patient medication.
+@patient.route('/get_patient_medications', methods=['GET'])
+def get_patient_medications():
     print("Endpoint called!")
     cursor = db.get_db().cursor()
     # collecting the data from the request object
@@ -141,17 +142,41 @@ def get_patient_history():
     current_app.logger.info(the_data)
 
     # extracting the variable
-    recordID = the_data["recordID"]
-    cursor.execute(''' select mh.record_id,immunization_name, prescribed_medications,
-                       fam_condition, past_procedure, allergy FROM medical_history mh
-                       LEFT JOIN immunizations AS i ON mh.record_id = i.record_id
-                       LEFT JOIN medications AS m ON mh.record_id = m.record_id
-                       LEFT JOIN family_conditions AS fc ON mh.record_id = fc.record_id
-                       LEFT JOIN procedures AS pr ON mh.record_id = pr.record_id
-                       LEFT JOIN allergies AS a ON mh.record_id = a.record_id
-                       WHERE mh.record_id = {0}
-                        '''.format(recordID))
+    patientID = the_data["patientID"]
+    cursor.execute(''' select prescribed_medications from patient p
+                    join medical_history mh on p.record_id = mh.record_id
+                    join medications m on mh.record_id = m.record_id
+                    where patient_id = {0}
+                        '''.format(patientID))
 
+    # grab the column headers from the returned data
+    row_headers = [x[0] for x in cursor.description]
+    results = cursor.fetchall()
+    json_data = []
+    for result in results:
+        json_data.append(dict(zip(row_headers, result)))
+    response = make_response(jsonify(json_data))
+    response.status_code = 200
+    response.mimetype = 'application/json'
+    return response
+
+# Return patient allergy.
+@patient.route('/get_patient_allergies', methods=['GET'])
+def get_patient_allergies():
+    print("Endpoint called!")
+    cursor = db.get_db().cursor()
+    # collecting the data from the request object
+    the_data = request.json 
+    current_app.logger.info(the_data)
+
+    # extracting the variable
+    patientID = the_data["patientID"]
+    cursor.execute(''' select allergy from patient p
+                    join medical_history mh on p.record_id = mh.record_id
+                    join allergies a on mh.record_id = a.record_id
+                    where patient_id = {0}
+                        '''.format(patientID))
+                        
     # grab the column headers from the returned data
     row_headers = [x[0] for x in cursor.description]
     results = cursor.fetchall()
