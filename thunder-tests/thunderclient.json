@@ -710,17 +710,17 @@
     "_id": "6639d3a3-b572-4386-911b-7d2706d3dc95",
     "colId": "25cac594-e080-4ccd-8aee-761df7b739e4",
     "containerId": "",
-    "name": "delete patient contact Copy",
+    "name": "delete patient allergy",
     "url": "localhost:8001/pt/delete_patient_allergy",
     "method": "DELETE",
     "sortNum": 190000,
     "created": "2023-04-20T15:22:32.299Z",
-    "modified": "2023-04-20T22:45:00.390Z",
+    "modified": "2023-04-20T23:00:43.128Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"allergy\" : \"cookie\"\n}",
+      "raw": "{\n  \"recordID\" : 1,\n  \"allergy\" : \"cookie\"\n}",
       "form": []
     },
     "tests": []
