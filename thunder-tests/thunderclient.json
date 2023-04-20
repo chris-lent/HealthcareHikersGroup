@@ -274,11 +274,11 @@
     "colId": "25cac594-e080-4ccd-8aee-761df7b739e4",
     "containerId": "",
     "name": "get medical history",
-    "url": "localhost:8001/pt/medical_center_insurance",
+    "url": "localhost:8001/pt/medical_history/1",
     "method": "GET",
     "sortNum": 70000,
     "created": "2023-04-19T13:36:48.472Z",
-    "modified": "2023-04-20T18:03:30.892Z",
+    "modified": "2023-04-20T22:32:31.200Z",
     "headers": [],
     "params": [],
     "body": {
@@ -350,13 +350,18 @@
     "colId": "25cac594-e080-4ccd-8aee-761df7b739e4",
     "containerId": "",
     "name": "get medical centers that support insurance plan",
-    "url": "localhost:8001/pt/medical_center_insurance/1",
+    "url": "localhost:8001/pt/medical_center_insurance",
     "method": "GET",
     "sortNum": 110000,
     "created": "2023-04-19T13:40:27.387Z",
-    "modified": "2023-04-19T13:40:36.270Z",
+    "modified": "2023-04-20T22:30:20.247Z",
     "headers": [],
     "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"patient_id\": 1\n}",
+      "form": []
+    },
     "tests": []
   },
   {
@@ -440,13 +445,18 @@
     "colId": "25cac594-e080-4ccd-8aee-761df7b739e4",
     "containerId": "",
     "name": "get medical centers that support insurance plan Copy",
-    "url": "localhost:8001/pt/medical_center_insurance/2",
+    "url": "localhost:8001/pt/medical_center_insurance",
     "method": "GET",
     "sortNum": 120000,
     "created": "2023-04-19T13:43:45.083Z",
-    "modified": "2023-04-19T13:43:53.563Z",
+    "modified": "2023-04-20T22:29:57.251Z",
     "headers": [],
     "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"patient_id\": 1\n}",
+      "form": []
+    },
     "tests": []
   },
   {
