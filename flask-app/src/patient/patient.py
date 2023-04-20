@@ -173,6 +173,23 @@ def input_patient_contact_info(patientID):
     response.mimetype = 'application/json'
     return response
 
+# Input patient allergy.
+@patient.route('/input_patient_allergies/<recordID>', methods=['POST'])
+def input_patient_allergies(recordID):
+    print("Endpoint called!")
+    data = request.json
+    allergies = data['allergies']
+
+    cursor = db.get_db().cursor()
+    for allergy in allergies:
+        cursor.execute('INSERT INTO allergies (record_id, allergy) VALUES (?, ?)', (recordID, allergy))
+    db.get_db().commit()
+
+    response = make_response(jsonify({'message': 'Patient allergies added successfully.'}))
+    response.status_code = 200
+    response.mimetype = 'application/json'
+    return response
+
 
 # Delete patient phone number.
 @patient.route('/delete_patient_phone/<patientID>', methods=['DELETE'])
