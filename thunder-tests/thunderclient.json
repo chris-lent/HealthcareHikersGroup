@@ -608,12 +608,12 @@
     "method": "POST",
     "sortNum": 170000,
     "created": "2023-04-20T14:23:50.281Z",
-    "modified": "2023-04-20T15:05:21.171Z",
+    "modified": "2023-04-20T15:22:06.523Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"service_id\" : \"cookie\"\n}",
+      "raw": "{\n  \"allergy\" : \"cookie\"\n}",
       "form": []
     },
     "tests": []
@@ -633,6 +633,44 @@
     "body": {
       "type": "json",
       "raw": "{\n  \"medication_name\" : \"oxybutynin chloride\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "7d1fafe1-bc4e-4374-ab8d-1424549c3f93",
+    "colId": "25cac594-e080-4ccd-8aee-761df7b739e4",
+    "containerId": "",
+    "name": "input patient allergy Copy",
+    "url": "localhost:8001/pt//input_patient_allergies/7",
+    "method": "POST",
+    "sortNum": 175000,
+    "created": "2023-04-20T15:21:32.791Z",
+    "modified": "2023-04-20T15:21:55.915Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"allergy\" : \"wasps\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "6639d3a3-b572-4386-911b-7d2706d3dc95",
+    "colId": "25cac594-e080-4ccd-8aee-761df7b739e4",
+    "containerId": "",
+    "name": "delete patient contact Copy",
+    "url": "localhost:8001/pt/delete_patient_medication/57",
+    "method": "DELETE",
+    "sortNum": 190000,
+    "created": "2023-04-20T15:22:32.299Z",
+    "modified": "2023-04-20T15:22:53.442Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"medication_name\" : \"Acetaminophen\"\n}",
       "form": []
     },
     "tests": []
