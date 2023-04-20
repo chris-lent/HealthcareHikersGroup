@@ -92,6 +92,36 @@ def center_delete_service():
 
     return "Success!"
 
+# Get services a center offers
+@hospital_employee.route('/center_offers_services', methods=['GET'])
+def get_services_center():
+    # collecting the data from the request object
+    the_data = request.json 
+    current_app.logger.info(the_data)
+
+    # extracting the variable
+    centerID = the_data["center_id"]
+
+    cursor = db.get_db().cursor()
+    cursor.execute('SELECT * FROM center_offers_services WHERE center_id = {}'.format(centerID))
+
+    # grab the column headers from the returned data
+    column_headers = [x[0] for x in cursor.description]
+
+    # create an empty dictionary object to use in 
+    # putting column headers together with data
+    json_data = []
+
+    # fetch all the data from the cursor
+    theData = cursor.fetchall()
+    
+    # for each of the rows, zip the data elements together with
+    # the column headers. 
+    for row in theData:
+        json_data.append(dict(zip(column_headers, row)))
+
+    return jsonify(json_data)
+
 # Updates doctor's avalibility
 @hospital_employee.route('/availibility', methods=['PUT'])
 def update_avalibility():
@@ -304,3 +334,33 @@ def delete_services():
     db.get_db().commit()
 
     return "Success!"
+
+# Get services a center offers
+@hospital_employee.route('/professional_specializes_service', methods=['GET'])
+def get_services():
+    # collecting the data from the request object
+    the_data = request.json 
+    current_app.logger.info(the_data)
+
+    # extracting the variable
+    docID = the_data["doc_id"]
+
+    cursor = db.get_db().cursor()
+    cursor.execute('SELECT * FROM professional_specializes_service WHERE doc_id = {}'.format(docID))
+
+    # grab the column headers from the returned data
+    column_headers = [x[0] for x in cursor.description]
+
+    # create an empty dictionary object to use in 
+    # putting column headers together with data
+    json_data = []
+
+    # fetch all the data from the cursor
+    theData = cursor.fetchall()
+    
+    # for each of the rows, zip the data elements together with
+    # the column headers. 
+    for row in theData:
+        json_data.append(dict(zip(column_headers, row)))
+
+    return jsonify(json_data)
