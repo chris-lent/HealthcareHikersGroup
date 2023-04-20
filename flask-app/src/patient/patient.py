@@ -17,7 +17,7 @@ def get_medical_centers_with_insurance_plan():
     # extracting the variable
     patientID = the_data["patient_id"]
     cursor = db.get_db().cursor()
-    cursor.execute(''' SELECT center_name FROM medical_center 
+    cursor.execute(''' SELECT center_name, street_address, city, state, zipcode FROM medical_center 
                         JOIN center_accepts_insurance_plan ip on medical_center.center_id = ip.center_id
                         JOIN (SELECT policy_id from patient
                         WHERE patient_id = {0}) as p where p.policy_id = ip.policy_id
