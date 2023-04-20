@@ -122,7 +122,7 @@ def update_avalibility():
 
     return "Success!"
 
-# Get doctor's availibility
+# Get medical center's availibility
 @hospital_employee.route('/availibility', methods=['GET'])
 def get_avalibility():
     # collecting the data from the request object
@@ -130,14 +130,15 @@ def get_avalibility():
     current_app.logger.info(the_data)
 
     # extracting the variable
-    docID = the_data['doc_id']
+    centerID = the_data['center_id']
 
     cursor = db.get_db().cursor()
     cursor.execute('''
-        SELECT doc_id, first_name, last_name, sched_id, day_of_week, start_time, end_time
-        FROM availability JOIN medical_professional USING(doc_id)
-        WHERE doc_id = {0};
-    '''.format(docID))
+        SELECT doc_id, m.first_name, m.last_name, sched_id, day_of_week, start_time, end_time
+        FROM availability JOIN
+            (medical_professional m JOIN healthcare_admin_employee USING(admin_id)) USING(doc_id)
+        WHERE center_id = {0};
+    '''.format(centerID))
 
     # grab the column headers from the returned data
     column_headers = [x[0] for x in cursor.description]
@@ -166,8 +167,8 @@ def get_avalibility():
     return jsonify(json_data)
 
 # Add medical center's accepted insurance plan
-@hospital_employee.route('/center_accepts_insurance_plan/<centerID>', methods=['POST'])
-def add_new_insurance(centerID):
+@hospital_employee.route('/center_accepts_insurance_plan', methods=['POST'])
+def add_new_insurance():
 
     # collecting the data from the request object
     the_data = request.json 
@@ -175,6 +176,7 @@ def add_new_insurance(centerID):
 
     # extracting the variable
     policyID = the_data['policy_id']
+    centerID = the_data['center_id']
 
     # constructing the query
     query = 'insert into center_accepts_insurance_plan values ({0},{1})'.format(centerID, policyID)
@@ -188,8 +190,8 @@ def add_new_insurance(centerID):
     return "Success!"
 
 # Delete medical center's accepted insurance plans
-@hospital_employee.route('/center_accepts_insurance_plan/<centerID>', methods=['DELETE'])
-def delete_insurance(centerID):
+@hospital_employee.route('/center_accepts_insurance_plan', methods=['DELETE'])
+def delete_insurance():
 
     # collecting the data from the request object
     the_data = request.json 
@@ -197,6 +199,7 @@ def delete_insurance(centerID):
 
     # extracting the variable
     policyID = the_data['policy_id']
+    centerID = the_data['center_id']
 
     # constructing the query
     query = '''
@@ -214,11 +217,16 @@ def delete_insurance(centerID):
     return "Success!"
 
 # Get insurance plans accepted at a medical center
-@hospital_employee.route('/insurance_plans_accepted/<centerID>', methods=['GET'])
-def accepted_insurances(centerID):
-    # get a cursor object from the database
-    cursor = db.get_db().cursor()
+@hospital_employee.route('/insurance_plans_accepted', methods=['GET'])
+def accepted_insurances():
+    # collecting the data from the request object
+    the_data = request.json 
+    current_app.logger.info(the_data)
 
+    # extracting the variable
+    centerID = the_data['center_id']
+
+    cursor = db.get_db().cursor()
     # use cursor to query the database for a list of products
     cursor.execute('''
         SELECT company_name, policy_id, plan_name

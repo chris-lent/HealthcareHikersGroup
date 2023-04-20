@@ -198,16 +198,16 @@
     "colId": "43b18eb6-2b64-4144-8dee-2b967987e2bc",
     "containerId": "",
     "name": "Post new insurance accepted (center_id = 10, policy_id = 6)",
-    "url": "localhost:8001/he/center_accepts_insurance_plan/10",
+    "url": "localhost:8001/he/center_accepts_insurance_plan",
     "method": "POST",
     "sortNum": 210000,
     "created": "2023-04-19T04:41:18.366Z",
-    "modified": "2023-04-19T04:52:11.331Z",
+    "modified": "2023-04-20T01:54:48.026Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"policy_id\": 6\n}",
+      "raw": "{\n  \"policy_id\": 6,\n  \"center_id\": 30\n}",
       "form": []
     },
     "tests": []
@@ -217,16 +217,16 @@
     "colId": "43b18eb6-2b64-4144-8dee-2b967987e2bc",
     "containerId": "",
     "name": "Delete insurance accepted (center_id = 21, policy_id = 30) ",
-    "url": "localhost:8001/he/center_accepts_insurance_plan/21",
+    "url": "localhost:8001/he/center_accepts_insurance_plan",
     "method": "DELETE",
     "sortNum": 220000,
     "created": "2023-04-19T04:51:15.915Z",
-    "modified": "2023-04-19T04:52:35.271Z",
+    "modified": "2023-04-20T01:55:22.860Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"policy_id\": 30\n}",
+      "raw": "{\n  \"policy_id\": 30,\n  \"center_id\": 21\n}",
       "form": []
     },
     "tests": []
@@ -236,16 +236,16 @@
     "colId": "43b18eb6-2b64-4144-8dee-2b967987e2bc",
     "containerId": "",
     "name": "Post new insurance accepted (center_id = 21, policy_id = 30) Copy",
-    "url": "localhost:8001/he/center_accepts_insurance_plan/21",
+    "url": "localhost:8001/he/center_accepts_insurance_plan",
     "method": "POST",
     "sortNum": 215000,
     "created": "2023-04-19T04:52:21.337Z",
-    "modified": "2023-04-19T04:54:46.131Z",
+    "modified": "2023-04-20T01:54:40.261Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"policy_id\": 30\n}",
+      "raw": "{\n  \"policy_id\": 30,\n  \"center_id\": 21\n}",
       "form": []
     },
     "tests": []
@@ -255,16 +255,16 @@
     "colId": "43b18eb6-2b64-4144-8dee-2b967987e2bc",
     "containerId": "",
     "name": "Delete insurance accepted (center_id = 10, policy_id = 6) ",
-    "url": "localhost:8001/he/center_accepts_insurance_plan/10",
+    "url": "localhost:8001/he/center_accepts_insurance_plan",
     "method": "DELETE",
     "sortNum": 217500,
     "created": "2023-04-19T04:52:41.730Z",
-    "modified": "2023-04-19T04:52:49.762Z",
+    "modified": "2023-04-20T01:55:09.415Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"policy_id\": 6\n}",
+      "raw": "{\n  \"policy_id\": 6,\n  \"center_id\": 30\n}",
       "form": []
     },
     "tests": []
@@ -528,13 +528,18 @@
     "colId": "43b18eb6-2b64-4144-8dee-2b967987e2bc",
     "containerId": "",
     "name": "get insurance plans accepted at medical center",
-    "url": "localhost:8001/he/insurance_plans_accepted/20",
+    "url": "localhost:8001/he/insurance_plans_accepted",
     "method": "GET",
     "sortNum": 290000,
     "created": "2023-04-19T21:02:06.092Z",
-    "modified": "2023-04-19T21:06:57.255Z",
+    "modified": "2023-04-20T01:42:14.307Z",
     "headers": [],
     "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"center_id\": 20\n}",
+      "form": []
+    },
     "tests": []
   },
   {
@@ -542,30 +547,35 @@
     "colId": "43b18eb6-2b64-4144-8dee-2b967987e2bc",
     "containerId": "",
     "name": "get insurance plans accepted at medical center Copy",
-    "url": "localhost:8001/he/insurance_plans_accepted/10",
+    "url": "localhost:8001/he/insurance_plans_accepted",
     "method": "GET",
     "sortNum": 300000,
     "created": "2023-04-19T21:13:34.400Z",
-    "modified": "2023-04-19T21:13:40.112Z",
+    "modified": "2023-04-20T01:42:29.180Z",
     "headers": [],
     "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"center_id\": 10\n}",
+      "form": []
+    },
     "tests": []
   },
   {
     "_id": "e98b2c5c-91a9-4591-82fb-b4e877bad623",
     "colId": "43b18eb6-2b64-4144-8dee-2b967987e2bc",
     "containerId": "",
-    "name": "get doctor's availibility",
+    "name": "get medical center's availibility",
     "url": "localhost:8001/he/availibility",
     "method": "GET",
     "sortNum": 310000,
     "created": "2023-04-20T00:10:25.708Z",
-    "modified": "2023-04-20T00:11:06.481Z",
+    "modified": "2023-04-20T01:35:19.660Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"doc_id\": 10\n}",
+      "raw": "{\n  \"center_id\": 5\n}",
       "form": []
     },
     "tests": []
@@ -574,17 +584,17 @@
     "_id": "6c8a4bfd-5511-4a65-a84d-2fdafff33a06",
     "colId": "43b18eb6-2b64-4144-8dee-2b967987e2bc",
     "containerId": "",
-    "name": "get doctor's availibility 2",
+    "name": "get medical center's availibility 2",
     "url": "localhost:8001/he/availibility",
     "method": "GET",
     "sortNum": 320000,
     "created": "2023-04-20T00:11:21.126Z",
-    "modified": "2023-04-20T00:11:37.956Z",
+    "modified": "2023-04-20T01:35:06.763Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"doc_id\": 35\n}",
+      "raw": "{\n  \"center_id\": 10\n}",
       "form": []
     },
     "tests": []
