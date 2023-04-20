@@ -160,11 +160,11 @@
     "colId": "43b18eb6-2b64-4144-8dee-2b967987e2bc",
     "containerId": "",
     "name": "Put (update) doctor's avalibility (doc_id = 16, sched_id = 196) for TUE",
-    "url": "localhost:8001/he/availibility/",
+    "url": "localhost:8001/he/availibility",
     "method": "PUT",
     "sortNum": 150000,
     "created": "2023-04-19T04:07:54.405Z",
-    "modified": "2023-04-19T21:47:24.806Z",
+    "modified": "2023-04-20T01:22:26.338Z",
     "headers": [],
     "params": [],
     "body": {
