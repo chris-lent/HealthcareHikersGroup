@@ -550,5 +550,43 @@
     "headers": [],
     "params": [],
     "tests": []
+  },
+  {
+    "_id": "e98b2c5c-91a9-4591-82fb-b4e877bad623",
+    "colId": "43b18eb6-2b64-4144-8dee-2b967987e2bc",
+    "containerId": "",
+    "name": "get doctor's availibility",
+    "url": "localhost:8001/he/availibility",
+    "method": "GET",
+    "sortNum": 310000,
+    "created": "2023-04-20T00:10:25.708Z",
+    "modified": "2023-04-20T00:11:06.481Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"doc_id\": 10\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "6c8a4bfd-5511-4a65-a84d-2fdafff33a06",
+    "colId": "43b18eb6-2b64-4144-8dee-2b967987e2bc",
+    "containerId": "",
+    "name": "get doctor's availibility 2",
+    "url": "localhost:8001/he/availibility",
+    "method": "GET",
+    "sortNum": 320000,
+    "created": "2023-04-20T00:11:21.126Z",
+    "modified": "2023-04-20T00:11:37.956Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"doc_id\": 35\n}",
+      "form": []
+    },
+    "tests": []
   }
 ]

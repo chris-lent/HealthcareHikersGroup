@@ -1,5 +1,6 @@
 from flask import Blueprint, request, jsonify, make_response, current_app
 import json
+from datetime import datetime, timedelta
 from src import db
 
 
@@ -120,6 +121,49 @@ def update_avalibility():
     db.get_db().commit()
 
     return "Success!"
+
+# Get doctor's availibility
+@hospital_employee.route('/availibility', methods=['GET'])
+def get_avalibility():
+    # collecting the data from the request object
+    the_data = request.json 
+    current_app.logger.info(the_data)
+
+    # extracting the variable
+    docID = the_data['doc_id']
+
+    cursor = db.get_db().cursor()
+    cursor.execute('''
+        SELECT doc_id, first_name, last_name, sched_id, day_of_week, start_time, end_time
+        FROM availability JOIN medical_professional USING(doc_id)
+        WHERE doc_id = {0};
+    '''.format(docID))
+
+    # grab the column headers from the returned data
+    column_headers = [x[0] for x in cursor.description]
+
+    # create an empty dictionary object to use in 
+    # putting column headers together with data
+    json_data = []
+
+    # fetch all the data from the cursor
+    theData = cursor.fetchall()
+   
+    def time_to_string(row):
+        new_row = []
+        for item in row:
+            if isinstance(item, timedelta):
+                new_row.append(str(item))
+            else:
+                new_row.append(item)
+        return new_row
+                
+    # for each of the rows, zip the data elements together with
+    # the column headers. 
+    for row in theData:
+        json_data.append(dict(zip(column_headers, time_to_string(row))))
+
+    return jsonify(json_data)
 
 # Add medical center's accepted insurance plan
 @hospital_employee.route('/center_accepts_insurance_plan/<centerID>', methods=['POST'])
