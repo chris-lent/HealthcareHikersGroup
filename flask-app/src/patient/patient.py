@@ -47,7 +47,7 @@ def get_medical_centers_with_service():
     # extracting the variable
     serviceName = the_data["serviceName"]
     cursor = db.get_db().cursor()
-    cursor.execute(''' select center_name from medical_center mc
+    cursor.execute(''' select center_name ,street_address, city, state, zipcode from medical_center mc
                     join center_offers_services cos on mc.center_id = cos.center_id
                     join (select * from services where service_name = "{0}")
                     as s where cos.service_id = s.service_id'''.format(serviceName))
@@ -74,7 +74,7 @@ def get_closest_medical_centers():
 
     # extracting the variable
     patientID = the_data["patientID"]
-    cursor.execute(''' SELECT center_name from medical_center mc
+    cursor.execute(''' SELECT center_name, street_address, city, state, zipcode from medical_center mc
                        JOIN (select city from patient where patient_id={0}) 
                        as p where mc.city = p.city'''.format(patientID))
 
@@ -100,27 +100,33 @@ def get_doc_availability():
 
     # extracting the variable
     serviceName = the_data["serviceName"]
-    cursor.execute(''' SELECT mp.first_name, mp.last_name, a.doc_id, day_of_week, start_time, end_time 
+    cursor.execute(''' SELECT mp.first_name, mp.last_name, mc.center_name, street_address, city, state, zipcode, day_of_week, start_time, end_time 
                        FROM availability a
                        JOIN medical_professional AS mp ON a.doc_id = mp.doc_id
                        JOIN professional_specializes_service pss on mp.doc_id = pss.doc_id
                        JOIN (select * from services where service_name = "{0}")
-                       AS s on pss.service_id = s.service_id'''.format(serviceName))
+                       AS s on pss.service_id = s.service_id
+                       JOIN center_offers_services AS cos on s.service_id = cos.service_id
+                       JOIN medical_center AS mc ON cos.center_id = mc.center_id'''.format(serviceName))
 
     # grab the column headers from the returned data
     row_headers = [x[0] for x in cursor.description]
     results = cursor.fetchall()
     json_data = []
     for result in results:
-        start_time_str = str(result[4])
-        end_time_str = str(result[5])
+        start_time_str = str(result[8])
+        end_time_str = str(result[9])
 
         # Include the strings in the JSON data
         result_dict = {
             'first_name': result[0],
             'last_name': result[1],
-            'doc_id': result[2],
-            'day_of_week': result[3],
+            'center_name': result[2],
+            'street_address': result[3],
+            'city': result[4],
+            'state': result[5],
+            'zipcode': result[6],
+            'day_of_week': result[7],
             'start_time': start_time_str,
             'end_time': end_time_str
         }
@@ -285,7 +291,7 @@ def input_patient_medication():
 
     return "Success!"
 
-    # Delete patient medication.
+# Delete patient medication.
 @patient.route('/delete_patient_medication', methods=['DELETE'])
 def delete_patient_medication():
 

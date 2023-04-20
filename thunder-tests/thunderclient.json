@@ -270,25 +270,6 @@
     "tests": []
   },
   {
-    "_id": "67d2a1f3-55c6-4eae-88b7-8ed1b6029751",
-    "colId": "25cac594-e080-4ccd-8aee-761df7b739e4",
-    "containerId": "",
-    "name": "get medical history",
-    "url": "localhost:8001/pt/medical_history",
-    "method": "GET",
-    "sortNum": 70000,
-    "created": "2023-04-19T13:36:48.472Z",
-    "modified": "2023-04-20T22:39:28.584Z",
-    "headers": [],
-    "params": [],
-    "body": {
-      "type": "json",
-      "raw": "{\n  \"recordID\" : 2\n}",
-      "form": []
-    },
-    "tests": []
-  },
-  {
     "_id": "339f94bc-5dbd-43fe-afff-a2351811be86",
     "colId": "25cac594-e080-4ccd-8aee-761df7b739e4",
     "containerId": "",
@@ -360,25 +341,6 @@
     "body": {
       "type": "json",
       "raw": "{\n  \"patient_id\": 1\n}",
-      "form": []
-    },
-    "tests": []
-  },
-  {
-    "_id": "dcaa7b82-bcf1-4a55-98f8-1c621e824687",
-    "colId": "25cac594-e080-4ccd-8aee-761df7b739e4",
-    "containerId": "",
-    "name": "get medical history",
-    "url": "localhost:8001/pt/medical_history",
-    "method": "GET",
-    "sortNum": 75000,
-    "created": "2023-04-19T13:40:58.346Z",
-    "modified": "2023-04-20T22:41:12.684Z",
-    "headers": [],
-    "params": [],
-    "body": {
-      "type": "json",
-      "raw": "{\n  \"recordID\" : 3\n}",
       "form": []
     },
     "tests": []
