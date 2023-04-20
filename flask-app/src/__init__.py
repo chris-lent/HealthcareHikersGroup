@@ -30,12 +30,10 @@ def create_app():
         return "<h1>Welcome to the 3200 boilerplate app</h1>"
 
     # Import the various routes
-    from src.views import views
     from src.patient.patient import patient
     from src.hospital_employee.hospital_employee  import hospital_employee
 
     # Register the routes that we just imported so they can be properly handled
-    app.register_blueprint(views,       url_prefix='/v')
     app.register_blueprint(patient,     url_prefix='/pt')
     app.register_blueprint(hospital_employee,    url_prefix='/he')
 
