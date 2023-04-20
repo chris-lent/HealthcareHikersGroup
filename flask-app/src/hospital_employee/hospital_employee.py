@@ -360,3 +360,33 @@ def get_services():
         json_data.append(dict(zip(column_headers, row)))
 
     return jsonify(json_data)
+
+# Get services a center offers
+@hospital_employee.route('/services', methods=['GET'])
+def get_services_details():
+    # collecting the data from the request object
+    the_data = request.json 
+    current_app.logger.info(the_data)
+
+    # extracting the variable
+    serviceID = the_data["service_id"]
+
+    cursor = db.get_db().cursor()
+    cursor.execute('SELECT * FROM services WHERE service_id = {}'.format(serviceID))
+
+    # grab the column headers from the returned data
+    column_headers = [x[0] for x in cursor.description]
+
+    # create an empty dictionary object to use in 
+    # putting column headers together with data
+    json_data = []
+
+    # fetch all the data from the cursor
+    theData = cursor.fetchall()
+    
+    # for each of the rows, zip the data elements together with
+    # the column headers. 
+    for row in theData:
+        json_data.append(dict(zip(column_headers, row)))
+
+    return jsonify(json_data)

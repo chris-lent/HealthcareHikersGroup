@@ -694,5 +694,43 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "715a6f57-d80d-4cf5-80b9-03fa6980a184",
+    "colId": "43b18eb6-2b64-4144-8dee-2b967987e2bc",
+    "containerId": "",
+    "name": "get services table by service id",
+    "url": "localhost:8001/he/services",
+    "method": "GET",
+    "sortNum": 330000,
+    "created": "2023-04-20T18:21:15.782Z",
+    "modified": "2023-04-20T18:21:51.436Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"service_id\": 5\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "655b14b1-8554-477c-907c-941f51df05ae",
+    "colId": "43b18eb6-2b64-4144-8dee-2b967987e2bc",
+    "containerId": "",
+    "name": "get services table by service id 2",
+    "url": "localhost:8001/he/services",
+    "method": "GET",
+    "sortNum": 340000,
+    "created": "2023-04-20T18:21:57.528Z",
+    "modified": "2023-04-20T18:22:09.831Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"service_id\": 50\n}",
+      "form": []
+    },
+    "tests": []
   }
 ]
