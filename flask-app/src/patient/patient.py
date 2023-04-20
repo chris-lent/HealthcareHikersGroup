@@ -37,7 +37,7 @@ def get_medical_centers_with_insurance_plan():
     
 #Return all treatment centers (center_id) that have a specific 
 #specialization {service_id}
-medical_centers = Blueprint('medical_centers', __name__)
+
 @patient.route('/medical_center_service', methods=['GET'])
 def get_medical_centers_with_service():
     # collecting the data from the request object
@@ -176,7 +176,7 @@ def get_patient_allergies():
                     join allergies a on mh.record_id = a.record_id
                     where patient_id = {0}
                         '''.format(patientID))
-                        
+
     # grab the column headers from the returned data
     row_headers = [x[0] for x in cursor.description]
     results = cursor.fetchall()
