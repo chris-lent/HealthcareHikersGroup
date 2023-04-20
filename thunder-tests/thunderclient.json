@@ -540,16 +540,16 @@
     "colId": "25cac594-e080-4ccd-8aee-761df7b739e4",
     "containerId": "",
     "name": "update contact info",
-    "url": "localhost:8001/pt/update_contact_info/1-203",
+    "url": "localhost:8001/pt/update_contact_info",
     "method": "PUT",
     "sortNum": 140000,
     "created": "2023-04-19T20:29:50.202Z",
-    "modified": "2023-04-19T20:35:17.730Z",
+    "modified": "2023-04-20T23:02:47.232Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"phone\": \"(203) 6095719\"\n}",
+      "raw": "{\n  \"patientID\": 1,\n  \"phone\": \"(203) 6095719\"\n}",
       "form": []
     },
     "tests": []
@@ -559,16 +559,16 @@
     "colId": "25cac594-e080-4ccd-8aee-761df7b739e4",
     "containerId": "",
     "name": "update contact info 2",
-    "url": "localhost:8001/pt/update_contact_info/2-123",
+    "url": "localhost:8001/pt/update_contact_info",
     "method": "PUT",
     "sortNum": 160000,
     "created": "2023-04-19T20:33:09.068Z",
-    "modified": "2023-04-19T20:35:51.086Z",
+    "modified": "2023-04-20T23:03:25.299Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"phone\": \"(123) 6095819\"\n}",
+      "raw": "{\n  \"patientID\": 2,\n  \"phone\": \"(123) 6095819\"\n}",
       "form": []
     },
     "tests": []

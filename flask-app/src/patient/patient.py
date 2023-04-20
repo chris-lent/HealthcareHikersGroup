@@ -164,12 +164,14 @@ def get_patient_history():
     return response
 
 # Update patient contact information
-@patient.route('/update_contact_info/<int:patientID>-<phone>', methods=['PUT'])
-def update_contact_info(patientID, phone):
+@patient.route('/update_contact_info', methods=['PUT'])
+def update_contact_info():
     print("Endpoint called!")
     # collecting the data from the request object
     the_data = request.json 
     current_app.logger.info(the_data)
+    patientID = the_data.get('patientID')
+    phone = the_data.get('phone')
 
     query = '''
         UPDATE patient
