@@ -38,9 +38,14 @@ def get_medical_centers_with_insurance_plan():
 #Return all treatment centers (center_id) that have a specific 
 #specialization {service_id}
 medical_centers = Blueprint('medical_centers', __name__)
-@patient.route('/medical_center_service/<serviceID>', methods=['GET'])
-def get_medical_centers_with_service(serviceID):
-    print("Endpoint called!")
+@patient.route('/medical_center_service', methods=['GET'])
+def get_medical_centers_with_service():
+    # collecting the data from the request object
+    the_data = request.json 
+    current_app.logger.info(the_data)
+
+    # extracting the variable
+    serviceID = the_data["serviceID"]
     cursor = db.get_db().cursor()
     cursor.execute(''' select center_name from medical_center mc
                         JOIN (select * from center_offers_services WHERE service_id = {0})
