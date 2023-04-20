@@ -45,11 +45,12 @@ def get_medical_centers_with_service():
     current_app.logger.info(the_data)
 
     # extracting the variable
-    serviceID = the_data["serviceID"]
+    serviceName = the_data["serviceName"]
     cursor = db.get_db().cursor()
     cursor.execute(''' select center_name from medical_center mc
-                        JOIN (select * from center_offers_services WHERE service_id = {0})
-                         as cos WHERE mc.center_id = cos.center_id'''.format(serviceID))
+                    join center_offers_services cos on mc.center_id = cos.center_id
+                    join (select * from services where service_name = "{0}")
+                    as s where cos.service_id = s.service_id'''.format(serviceName))
 
     # grab the column headers from the returned data
     row_headers = [x[0] for x in cursor.description]
