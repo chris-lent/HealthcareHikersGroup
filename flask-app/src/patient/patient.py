@@ -132,19 +132,25 @@ def get_doc_availability():
 
 
 # Return patient medical history.
-@patient.route('/medical_history/<patientID>', methods=['GET'])
-def get_patient_history(patientID):
+@patient.route('/medical_history', methods=['GET'])
+def get_patient_history():
     print("Endpoint called!")
     cursor = db.get_db().cursor()
-    cursor.execute(''' select patient_id,immunization_name, prescribed_medications,
+    # collecting the data from the request object
+    the_data = request.json 
+    current_app.logger.info(the_data)
+
+    # extracting the variable
+    recordID = the_data["recordID"]
+    cursor.execute(''' select mh.record_id,immunization_name, prescribed_medications,
                        fam_condition, past_procedure, allergy FROM medical_history mh
                        LEFT JOIN immunizations AS i ON mh.record_id = i.record_id
                        LEFT JOIN medications AS m ON mh.record_id = m.record_id
                        LEFT JOIN family_conditions AS fc ON mh.record_id = fc.record_id
                        LEFT JOIN procedures AS pr ON mh.record_id = pr.record_id
                        LEFT JOIN allergies AS a ON mh.record_id = a.record_id
-                       WHERE patient_id = {0}
-                        '''.format(patientID))
+                       WHERE mh.record_id = {0}
+                        '''.format(recordID))
 
     # grab the column headers from the returned data
     row_headers = [x[0] for x in cursor.description]
@@ -180,15 +186,15 @@ def update_contact_info(patientID, phone):
     return "Success!"
 
 # Input patient allergy.
-@patient.route('/input_patient_allergies/<recordID>', methods=['POST'])
-def input_patient_allergies(recordID):
+@patient.route('/input_patient_allergies', methods=['POST'])
+def input_patient_allergies():
 
     # collecting the data from the request object
     the_data = request.json 
     current_app.logger.info(the_data)
-
     # extracting the variable
-    allergy = the_data['allergy']
+    recordID = the_data.get('recordID')
+    allergy = the_data.get('allergy')
 
     # constructing the query
     query = 'insert into allergies values ({0},"{1}")'.format(recordID, allergy)
@@ -203,21 +209,22 @@ def input_patient_allergies(recordID):
 
     
 # Delete patient medication.
-@patient.route('/delete_patient_medication/<recordID>', methods=['DELETE'])
-def delete_patient_medication(recordID):
+@patient.route('/delete_patient_allergy', methods=['DELETE'])
+def delete_patient_medication():
 
     # collecting the data from the request object
     the_data = request.json 
     current_app.logger.info(the_data)
 
     # extracting the variable
-    medication_name = the_data['medication_name']
+    allergy = the_data.get('allergy')
+    recordID = the_data.get('recordID')
 
     # constructing the query
     query = '''
-        DELETE FROM medications 
-        WHERE record_id = {0} AND prescribed_medications = "{1}"
-    '''.format(recordID, medication_name)
+        DELETE FROM allergies 
+        WHERE record_id = {0} AND allergy = "{1}"
+    '''.format(recordID, allergy)
 
     current_app.logger.info(query)
 
