@@ -63,10 +63,16 @@ def get_medical_centers_with_service():
     return response
 
 # Getting the location based on the patients location
-@patient.route('/medical_center_location/<patientID>', methods=['GET'])
-def get_closest_medical_centers(patientID):
+@patient.route('/medical_center_location', methods=['GET'])
+def get_closest_medical_centers():
     print("Endpoint called!")
     cursor = db.get_db().cursor()
+    # collecting the data from the request object
+    the_data = request.json 
+    current_app.logger.info(the_data)
+
+    # extracting the variable
+    patientID = the_data["patientID"]
     cursor.execute(''' SELECT center_name from medical_center mc
                        JOIN (select city from patient where patient_id={0}) 
                        as p where mc.city = p.city'''.format(patientID))

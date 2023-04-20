@@ -307,13 +307,18 @@
     "colId": "25cac594-e080-4ccd-8aee-761df7b739e4",
     "containerId": "",
     "name": "get the closest city location",
-    "url": "localhost:8001/pt/medical_center_location/10",
+    "url": "localhost:8001/pt/medical_center_location",
     "method": "GET",
     "sortNum": 90000,
     "created": "2023-04-19T13:38:35.758Z",
-    "modified": "2023-04-19T13:43:01.092Z",
+    "modified": "2023-04-20T18:30:16.247Z",
     "headers": [],
     "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"patientID\" : 3\n}",
+      "form": []
+    },
     "tests": []
   },
   {
@@ -387,13 +392,18 @@
     "colId": "25cac594-e080-4ccd-8aee-761df7b739e4",
     "containerId": "",
     "name": "get the closest city location Copy",
-    "url": "localhost:8001/pt/medical_center_location/1",
+    "url": "localhost:8001/pt/medical_center_location",
     "method": "GET",
     "sortNum": 95000,
     "created": "2023-04-19T13:43:12.026Z",
-    "modified": "2023-04-19T13:43:15.718Z",
+    "modified": "2023-04-20T18:31:04.362Z",
     "headers": [],
     "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"patientID\" : 10\n}",
+      "form": []
+    },
     "tests": []
   },
   {
