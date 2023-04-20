@@ -30,9 +30,10 @@ The `secrets/` folder is empty, files will need to be added once the repository 
 1. Start the containers with `docker compose up`.  To run in detached mode, run `docker compose up -d`. 
 
 ## Collaborators
+Christina Lent, Connie Too, and Krithika Natarajan
 
 ## Notes
-
+Made with the templates from the `MarkFontenot/flask-mysql-boilerplate` repository.
 
 
 
