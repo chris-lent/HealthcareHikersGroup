@@ -293,13 +293,18 @@
     "colId": "25cac594-e080-4ccd-8aee-761df7b739e4",
     "containerId": "",
     "name": "get doctor availability for a specific service",
-    "url": "localhost:8001/pt/doc_availability_by_service/2",
+    "url": "localhost:8001/pt/doc_availability_by_service",
     "method": "GET",
     "sortNum": 80000,
     "created": "2023-04-19T13:37:19.325Z",
-    "modified": "2023-04-19T13:41:58.280Z",
+    "modified": "2023-04-20T21:43:29.638Z",
     "headers": [],
     "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"serviceName\" : \"Upper arm reattachment\"\n  \n}",
+      "form": []
+    },
     "tests": []
   },
   {
@@ -378,13 +383,18 @@
     "colId": "25cac594-e080-4ccd-8aee-761df7b739e4",
     "containerId": "",
     "name": "get doctor availability for a specific service",
-    "url": "localhost:8001/pt/doc_availability_by_service/5",
+    "url": "localhost:8001/pt/doc_availability_by_service",
     "method": "GET",
     "sortNum": 85000,
     "created": "2023-04-19T13:41:29.547Z",
-    "modified": "2023-04-19T13:42:09.681Z",
+    "modified": "2023-04-20T21:20:37.215Z",
     "headers": [],
     "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"serviceName\" : \"Corneal incision\"\n}",
+      "form": []
+    },
     "tests": []
   },
   {
@@ -396,7 +406,7 @@
     "method": "GET",
     "sortNum": 95000,
     "created": "2023-04-19T13:43:12.026Z",
-    "modified": "2023-04-20T18:31:04.362Z",
+    "modified": "2023-04-20T21:11:57.864Z",
     "headers": [],
     "params": [],
     "body": {

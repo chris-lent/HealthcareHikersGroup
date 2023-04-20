@@ -90,16 +90,22 @@ def get_closest_medical_centers():
     return response
 
 # Return availability for a {doc_id} with a specific specialty  {specialty_name)
-@patient.route('/doc_availability_by_service/<serviceID>', methods=['GET'])
-def get_doc_availability(serviceID):
+@patient.route('/doc_availability_by_service', methods=['GET'])
+def get_doc_availability():
     print("Endpoint called!")
     cursor = db.get_db().cursor()
+    # collecting the data from the request object
+    the_data = request.json 
+    current_app.logger.info(the_data)
+
+    # extracting the variable
+    serviceName = the_data["serviceName"]
     cursor.execute(''' SELECT a.doc_id, day_of_week, start_time, end_time 
                        FROM availability a
                        JOIN medical_professional AS mp ON a.doc_id = mp.doc_id
-                       JOIN (SELECT doc_id FROM professional_specializes_service 
-                       WHERE service_id={0}) pos ON mp.doc_id = pos.doc_id
-    '''.format(serviceID))
+                       JOIN professional_specializes_service pss on mp.doc_id = pss.doc_id
+                       JOIN (select * from services where service_name = "{0}")
+                       AS s on pss.service_id = s.service_id'''.format(serviceName))
 
     # grab the column headers from the returned data
     row_headers = [x[0] for x in cursor.description]
@@ -122,7 +128,7 @@ def get_doc_availability(serviceID):
     response = make_response(jsonify(json_data))
     response.status_code = 200
     response.mimetype = 'application/json'
-    return response 
+    return response  
 
 
 # Return patient medical history.
