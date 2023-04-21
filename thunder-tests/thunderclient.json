@@ -857,5 +857,19 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "3d9ff2a5-22fc-418d-8d60-1959f406dae0",
+    "colId": "43b18eb6-2b64-4144-8dee-2b967987e2bc",
+    "containerId": "",
+    "name": "get service names",
+    "url": "localhost:8001/pt/services_types",
+    "method": "GET",
+    "sortNum": 360000,
+    "created": "2023-04-21T01:18:47.094Z",
+    "modified": "2023-04-21T01:19:18.868Z",
+    "headers": [],
+    "params": [],
+    "tests": []
   }
 ]
