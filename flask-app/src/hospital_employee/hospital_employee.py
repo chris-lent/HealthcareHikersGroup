@@ -43,14 +43,15 @@ def get_insurance():
     return jsonify(json_data)
 
 # Add services the center offers
-@hospital_employee.route('/center_offers_services/<centerID>', methods=['POST'])
-def center_add_new_service(centerID):
+@hospital_employee.route('/center_offers_services', methods=['POST'])
+def center_add_new_service():
 
     # collecting the data from the request object
     the_data = request.json 
     current_app.logger.info(the_data)
 
     # extracting the variable
+    centerID = the_data['center_id']
     serviceCode = the_data['service_id']
 
     # constructing the query
@@ -65,14 +66,15 @@ def center_add_new_service(centerID):
     return "Success!"
 
 # Delete services the center offers
-@hospital_employee.route('/center_offers_services/<centerID>', methods=['DELETE'])
-def center_delete_service(centerID):
+@hospital_employee.route('/center_offers_services', methods=['DELETE'])
+def center_delete_service():
 
     # collecting the data from the request object
     the_data = request.json 
     current_app.logger.info(the_data)
 
     # extracting the variable
+    centerID = the_data['center_id']
     serviceCode = the_data['service_id']
 
     # constructing the query

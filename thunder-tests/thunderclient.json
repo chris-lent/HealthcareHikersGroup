@@ -84,16 +84,16 @@
     "colId": "43b18eb6-2b64-4144-8dee-2b967987e2bc",
     "containerId": "",
     "name": "Post new service (serviceID 200) for Center (centerID 5)",
-    "url": "localhost:8001/he/center_offers_services/5",
+    "url": "localhost:8001/he/center_offers_services",
     "method": "POST",
     "sortNum": 40000,
     "created": "2023-04-18T19:16:44.068Z",
-    "modified": "2023-04-18T19:32:25.094Z",
+    "modified": "2023-04-21T01:04:01.814Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"service_id\": 200\n}",
+      "raw": "{\n  \"center_id\": 5,\n  \"service_id\": 200\n}",
       "form": []
     },
     "tests": []
@@ -103,16 +103,16 @@
     "colId": "43b18eb6-2b64-4144-8dee-2b967987e2bc",
     "containerId": "",
     "name": "Post new service (serviceID 160) for Center (centerID 25)",
-    "url": "localhost:8001/he/center_offers_services/25",
+    "url": "localhost:8001/he/center_offers_services",
     "method": "POST",
     "sortNum": 80000,
     "created": "2023-04-18T19:22:15.842Z",
-    "modified": "2023-04-18T19:32:30.404Z",
+    "modified": "2023-04-21T01:04:58.147Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"service_id\": 160\n}",
+      "raw": "{\n  \"center_id\": 25,\n  \"service_id\": 160\n}",
       "form": []
     },
     "tests": []
@@ -122,16 +122,16 @@
     "colId": "43b18eb6-2b64-4144-8dee-2b967987e2bc",
     "containerId": "",
     "name": "Delete service (serviceID 200) for Center (centerID 5)",
-    "url": "localhost:8001/he/center_offers_services/25",
+    "url": "localhost:8001/he/center_offers_services",
     "method": "DELETE",
     "sortNum": 100000,
     "created": "2023-04-18T19:33:30.077Z",
-    "modified": "2023-04-18T19:33:50.789Z",
+    "modified": "2023-04-21T01:04:46.209Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"service_id\": 160\n}",
+      "raw": "{\n  \"center_id\": 25,\n  \"service_id\": 160\n}",
       "form": []
     },
     "tests": []
@@ -141,16 +141,16 @@
     "colId": "43b18eb6-2b64-4144-8dee-2b967987e2bc",
     "containerId": "",
     "name": "Delete new service (serviceID 200) for Center (centerID 5)",
-    "url": "localhost:8001/he/center_offers_services/5",
+    "url": "localhost:8001/he/center_offers_services",
     "method": "DELETE",
     "sortNum": 110000,
     "created": "2023-04-18T19:36:39.001Z",
-    "modified": "2023-04-18T19:37:37.682Z",
+    "modified": "2023-04-21T01:04:41.888Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"service_id\": 200\n}",
+      "raw": "{\n  \"center_id\": 5,\n  \"service_id\": 200\n}",
       "form": []
     },
     "tests": []
