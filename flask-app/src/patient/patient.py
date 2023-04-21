@@ -217,6 +217,31 @@ def update_contact_info():
     db.get_db().commit()
 
     return "Success!"
+# Return patient phone number.
+@patient.route('/get_patient_phone_num', methods=['GET'])
+def get_patient_phone_num():
+    print("Endpoint called!")
+    cursor = db.get_db().cursor()
+    # collecting the data from the request object
+    the_data = request.json 
+    current_app.logger.info(the_data)
+
+    # extracting the variable
+    patientID = the_data["patientID"]
+    cursor.execute(''' select phone from patient
+                        where patient_id = "{0}"
+                        '''.format(patientID))
+
+    # grab the column headers from the returned data
+    row_headers = [x[0] for x in cursor.description]
+    results = cursor.fetchall()
+    json_data = []
+    for result in results:
+        json_data.append(dict(zip(row_headers, result)))
+    response = make_response(jsonify(json_data))
+    response.status_code = 200
+    response.mimetype = 'application/json'
+    return response
 
 # Input patient allergy.
 @patient.route('/input_patient_allergies', methods=['POST'])

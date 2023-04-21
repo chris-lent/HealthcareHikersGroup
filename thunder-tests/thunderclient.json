@@ -838,5 +838,24 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "61c48f47-cd9e-4e3d-9aaa-0f34a6baba91",
+    "colId": "25cac594-e080-4ccd-8aee-761df7b739e4",
+    "containerId": "",
+    "name": "get patient phone number",
+    "url": "localhost:8001/pt/get_patient_phone_num",
+    "method": "GET",
+    "sortNum": 240000,
+    "created": "2023-04-21T00:04:37.845Z",
+    "modified": "2023-04-21T00:05:21.865Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"patientID\" : 15\n}",
+      "form": []
+    },
+    "tests": []
   }
 ]
