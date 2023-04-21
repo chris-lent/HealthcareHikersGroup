@@ -658,12 +658,12 @@
     "method": "DELETE",
     "sortNum": 190000,
     "created": "2023-04-20T15:22:32.299Z",
-    "modified": "2023-04-21T00:52:21.161Z",
+    "modified": "2023-04-21T01:43:03.760Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"patientID\" : 1,\n  \"allergy\" : \"cookie\"\n}",
+      "raw": "{\n  \"patientID\" : 2,\n  \"allergy\" : \"Peanuts\"\n}",
       "form": []
     },
     "tests": []
@@ -715,12 +715,12 @@
     "method": "POST",
     "sortNum": 172500,
     "created": "2023-04-20T23:13:24.391Z",
-    "modified": "2023-04-21T00:55:24.171Z",
+    "modified": "2023-04-21T01:42:46.322Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"patientID\" : 1,\n  \"allergy\" : \"cats\"\n}\n",
+      "raw": "{\n  \"patientID\" : 2,\n  \"allergy\" : \"Peanuts\"\n}\n",
       "form": []
     },
     "tests": []
@@ -734,12 +734,12 @@
     "method": "POST",
     "sortNum": 200000,
     "created": "2023-04-20T23:13:40.172Z",
-    "modified": "2023-04-20T23:17:18.476Z",
+    "modified": "2023-04-21T01:43:39.416Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"recordID\" : 1,\n  \"medication\": \"Isotretinoin\"\n}",
+      "raw": "{\n  \"patientID\" : 1,\n  \"medication\": \"Isotretinoin\"\n}",
       "form": []
     },
     "tests": []
@@ -805,7 +805,7 @@
     "_id": "48df6e92-18c6-4492-8bfa-6e2cde8bd4ca",
     "colId": "25cac594-e080-4ccd-8aee-761df7b739e4",
     "containerId": "",
-    "name": "get patient medications",
+    "name": "get patient allergies",
     "url": "localhost:8001/pt/get_patient_allergies",
     "method": "GET",
     "sortNum": 220000,

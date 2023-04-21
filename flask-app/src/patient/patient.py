@@ -347,3 +347,27 @@ def delete_patient_medication():
     db.get_db().commit()
 
     return "Success!"
+
+# Get categories
+@patient.route('/services_types', methods=['GET'])
+def get_service_types():
+    query = '''
+        SELECT DISTINCT service_name AS label, service_name AS value 
+        FROM services  
+        WHERE service_name IS NOT NULL
+        ORDER BY service_name
+    '''
+
+    cursor = db.get_db().cursor()
+    cursor.execute(query)
+
+    json_data = []
+    
+    column_headers = [x[0] for x in cursor.description]
+    theData = cursor.fetchall()
+    
+
+    for row in theData:
+        json_data.append(dict(zip(column_headers, row)))
+
+    return jsonify(json_data)
