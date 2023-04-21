@@ -217,6 +217,7 @@ def update_contact_info():
     db.get_db().commit()
 
     return "Success!"
+    
 # Return patient phone number.
 @patient.route('/get_patient_phone_num', methods=['GET'])
 def get_patient_phone_num():
