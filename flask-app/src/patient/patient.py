@@ -217,7 +217,7 @@ def update_contact_info():
     db.get_db().commit()
 
     return "Success!"
-    
+
 # Return patient phone number.
 @patient.route('/get_patient_phone_num', methods=['GET'])
 def get_patient_phone_num():
@@ -303,11 +303,12 @@ def input_patient_medication():
     the_data = request.json 
     current_app.logger.info(the_data)
     # extracting the variable
-    recordID = the_data.get('recordID')
+    patientID = the_data.get('patientID')
     medication = the_data.get('medication')
 
     # constructing the query
-    query = 'insert into medications values ({0},"{1}")'.format(recordID, medication)
+    query = '''INSERT INTO medications(record_id, prescribed_medications)
+                VALUES((SELECT record_id FROM patient WHERE patient_id = {0}), "{1}" )'''.format(patientID, medication)
     current_app.logger.info(query)
 
     #executing and commiting the inset statement
@@ -327,13 +328,14 @@ def delete_patient_medication():
 
     # extracting the variable
     medication = the_data.get('medication')
-    recordID = the_data.get('recordID')
+    patientID = the_data.get('patientID')
 
     # constructing the query
     query = '''
-        DELETE FROM medications 
-        WHERE record_id = {0} AND prescribed_medications = "{1}"
-    '''.format(recordID, medication)
+        DELETE FROM medications WHERE
+        (SELECT record_id FROM patient WHERE patient_id = {0}) = medications.record_id
+         AND prescribed_medications= "{1}"
+    '''.format(patientID, medication)
 
     current_app.logger.info(query)
 

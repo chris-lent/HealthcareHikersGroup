@@ -753,12 +753,12 @@
     "method": "DELETE",
     "sortNum": 210000,
     "created": "2023-04-20T23:13:58.026Z",
-    "modified": "2023-04-20T23:17:55.569Z",
+    "modified": "2023-04-21T00:43:09.731Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"recordID\" : 1,\n  \"medication\": \"Isotretinoin\"\n}",
+      "raw": "{\n  \"patientID\" : 1,\n  \"medication\":\"Isotretinoin\"\n}",
       "form": []
     },
     "tests": []
@@ -772,12 +772,12 @@
     "method": "POST",
     "sortNum": 205000,
     "created": "2023-04-20T23:18:33.429Z",
-    "modified": "2023-04-20T23:18:52.389Z",
+    "modified": "2023-04-21T00:43:38.169Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"recordID\" : 2,\n  \"medication\": \"Metformin\"\n}",
+      "raw": "{\n  \"patientID\" : 2,\n  \"medication\": \"Metformin\"\n}",
       "form": []
     },
     "tests": []
@@ -791,12 +791,12 @@
     "method": "DELETE",
     "sortNum": 220000,
     "created": "2023-04-20T23:18:55.325Z",
-    "modified": "2023-04-20T23:19:04.918Z",
+    "modified": "2023-04-21T00:34:56.866Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"recordID\" : 2,\n  \"medication\": \"Metformin\"\n}",
+      "raw": "{\n  \"patientID\" : 2,\n  \"medication\": \"Metformin\"\n}",
       "form": []
     },
     "tests": []
