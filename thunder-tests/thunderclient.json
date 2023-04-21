@@ -824,7 +824,7 @@
     "_id": "51902675-60a2-4666-a0d5-fdd8a2ac20f7",
     "colId": "25cac594-e080-4ccd-8aee-761df7b739e4",
     "containerId": "",
-    "name": "get patient allergies",
+    "name": "get patient medications",
     "url": "localhost:8001/pt/get_patient_medications",
     "method": "GET",
     "sortNum": 230000,

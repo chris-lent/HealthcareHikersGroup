@@ -74,7 +74,7 @@ def get_closest_medical_centers():
 
     # extracting the variable
     patientID = the_data["patientID"]
-    cursor.execute(''' SELECT center_name, street_address, city, state, zipcode from medical_center mc
+    cursor.execute(''' SELECT center_name, mc.street_address, mc.city, mc.state, mc.zipcode from medical_center mc
                        JOIN (select city from patient where patient_id={0}) 
                        as p where mc.city = p.city'''.format(patientID))
 
