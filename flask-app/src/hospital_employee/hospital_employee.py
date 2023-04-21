@@ -365,7 +365,7 @@ def get_services():
 
     return jsonify(json_data)
 
-# Get services a center offers
+# Get services details
 @hospital_employee.route('/services', methods=['GET'])
 def get_services_details():
     # collecting the data from the request object

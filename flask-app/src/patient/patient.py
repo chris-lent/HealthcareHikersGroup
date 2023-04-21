@@ -37,7 +37,6 @@ def get_medical_centers_with_insurance_plan():
     
 #Return all treatment centers (center_id) that have a specific 
 #specialization {service_id}
-
 @patient.route('/medical_center_service', methods=['GET'])
 def get_medical_centers_with_service():
     # collecting the data from the request object
@@ -348,7 +347,7 @@ def delete_patient_medication():
 
     return "Success!"
 
-# Get categories
+# Get service types that are offered
 @patient.route('/services_types', methods=['GET'])
 def get_service_types():
     query = '''
