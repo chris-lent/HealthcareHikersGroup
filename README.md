@@ -1,7 +1,7 @@
 # Dock-ter App
 ## Description
 This app is meant to streamline the process of connecting patients to medical professionals based on their insurance coverage and/or medical concerns.
-The purpose of this app is to allow patients to search for treatment centers based on their insurance, location, medical concern, and availability. It will allow patients to directly access information about what services a doctor's office provides and whether those services would be covered by their insurance.  They can also find out other information about their insurance plan coverage like which specialists they would need a referral to see.
+The purpose of this app is to allow patients to search for treatment centers based on their insurance, location, medical concern, and availability. Patient's can also update some personal information on the app.
 
 Additionally, it will allow healthcare employees to access information about patient's insurance plan, insurance plans accepted, doctor's availability, services offered at a center, and what services each doctor performs. The employee can adjust information on insurance plans accepted, doctor's availability, services offered and services performed by each doctor.
 
