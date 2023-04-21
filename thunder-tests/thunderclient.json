@@ -406,17 +406,17 @@
     "_id": "61771fe2-0001-4f03-950f-c86d11534ad9",
     "colId": "25cac594-e080-4ccd-8aee-761df7b739e4",
     "containerId": "",
-    "name": "get medical centers that support insurance plan Copy",
+    "name": "get medical centers that support insurance plan 2",
     "url": "localhost:8001/pt/medical_center_insurance",
     "method": "GET",
     "sortNum": 120000,
     "created": "2023-04-19T13:43:45.083Z",
-    "modified": "2023-04-20T22:29:57.251Z",
+    "modified": "2023-04-21T02:07:49.214Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"patient_id\": 1\n}",
+      "raw": "{\n  \"patient_id\": 2\n}",
       "form": []
     },
     "tests": []
