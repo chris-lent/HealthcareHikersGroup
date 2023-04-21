@@ -252,11 +252,12 @@ def input_patient_allergies():
     the_data = request.json 
     current_app.logger.info(the_data)
     # extracting the variable
-    recordID = the_data.get('recordID')
+    patientID = the_data.get('patientID')
     allergy = the_data.get('allergy')
 
     # constructing the query
-    query = 'insert into allergies values ({0},"{1}")'.format(recordID, allergy)
+    query = '''INSERT INTO allergies(record_id, allergy)
+                VALUES((SELECT record_id FROM patient WHERE patient_id = {0}), "{1}" )'''.format(patientID, allergy)
     current_app.logger.info(query)
 
     #executing and commiting the inset statement
@@ -277,13 +278,14 @@ def delete_patient_allergy():
 
     # extracting the variable
     allergy = the_data.get('allergy')
-    recordID = the_data.get('recordID')
+    patientID = the_data.get('patientID')
 
     # constructing the query
     query = '''
-        DELETE FROM allergies 
-        WHERE record_id = {0} AND allergy = "{1}"
-    '''.format(recordID, allergy)
+        DELETE FROM allergies WHERE
+        (SELECT record_id FROM patient WHERE patient_id = {0}) = allergies.record_id
+         AND allergy= "{1}"
+    '''.format(patientID, allergy)
 
     current_app.logger.info(query)
 

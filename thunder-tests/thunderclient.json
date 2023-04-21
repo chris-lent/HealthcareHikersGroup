@@ -620,12 +620,12 @@
     "method": "POST",
     "sortNum": 170000,
     "created": "2023-04-20T14:23:50.281Z",
-    "modified": "2023-04-20T22:56:59.330Z",
+    "modified": "2023-04-21T00:55:17.474Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"recordID\" : 1,\n  \"allergy\" : \"cats\"\n}\n",
+      "raw": "{\n  \"patientID\" : 1,\n  \"allergy\" : \"cats\"\n}\n",
       "form": []
     },
     "tests": []
@@ -639,12 +639,12 @@
     "method": "DELETE",
     "sortNum": 180000,
     "created": "2023-04-20T15:06:50.458Z",
-    "modified": "2023-04-20T22:58:07.577Z",
+    "modified": "2023-04-21T00:52:47.153Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"recordID\": 1,\n  \"allergy\" : \"cats\"\n}",
+      "raw": "{\n  \"patientID\": 1,\n  \"allergy\" : \"cats\"\n}",
       "form": []
     },
     "tests": []
@@ -658,12 +658,12 @@
     "method": "DELETE",
     "sortNum": 190000,
     "created": "2023-04-20T15:22:32.299Z",
-    "modified": "2023-04-20T23:00:43.128Z",
+    "modified": "2023-04-21T00:52:21.161Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"recordID\" : 1,\n  \"allergy\" : \"cookie\"\n}",
+      "raw": "{\n  \"patientID\" : 1,\n  \"allergy\" : \"cookie\"\n}",
       "form": []
     },
     "tests": []
@@ -715,12 +715,12 @@
     "method": "POST",
     "sortNum": 172500,
     "created": "2023-04-20T23:13:24.391Z",
-    "modified": "2023-04-20T23:13:24.391Z",
+    "modified": "2023-04-21T00:55:24.171Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"recordID\" : 1,\n  \"allergy\" : \"cats\"\n}\n",
+      "raw": "{\n  \"patientID\" : 1,\n  \"allergy\" : \"cats\"\n}\n",
       "form": []
     },
     "tests": []
