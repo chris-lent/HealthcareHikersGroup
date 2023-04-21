@@ -286,8 +286,8 @@ def accepted_insurances():
     return jsonify(json_data)
 
 # Add new services a medical professional offers
-@hospital_employee.route('/professional_specializes_service/<docID>', methods=['POST'])
-def add_new_services(docID):
+@hospital_employee.route('/professional_specializes_service', methods=['POST'])
+def add_new_services():
 
     # collecting the data from the request object
     the_data = request.json 
@@ -295,6 +295,7 @@ def add_new_services(docID):
 
     # extracting the variable
     serviceID = the_data['service_id']
+    docID = the_data["doc_id"]
 
     # constructing the query
     query = 'insert into professional_specializes_service values ({0},{1})'.format(serviceID, docID)
@@ -308,8 +309,8 @@ def add_new_services(docID):
     return "Success!"
 
 # Delete services a medical professional offers
-@hospital_employee.route('/professional_specializes_service/<docID>', methods=['DELETE'])
-def delete_services(docID):
+@hospital_employee.route('/professional_specializes_service', methods=['DELETE'])
+def delete_services():
 
     # collecting the data from the request object
     the_data = request.json 
@@ -317,6 +318,7 @@ def delete_services(docID):
 
     # extracting the variable
     serviceID = the_data['service_id']
+    docID = the_data["doc_id"]
 
     # constructing the query
     query = '''
