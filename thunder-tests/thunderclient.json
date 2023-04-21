@@ -860,14 +860,14 @@
   },
   {
     "_id": "3d9ff2a5-22fc-418d-8d60-1959f406dae0",
-    "colId": "43b18eb6-2b64-4144-8dee-2b967987e2bc",
+    "colId": "25cac594-e080-4ccd-8aee-761df7b739e4",
     "containerId": "",
     "name": "get service names",
     "url": "localhost:8001/pt/services_types",
     "method": "GET",
-    "sortNum": 360000,
+    "sortNum": 40000,
     "created": "2023-04-21T01:18:47.094Z",
-    "modified": "2023-04-21T01:19:18.868Z",
+    "modified": "2023-04-21T01:55:24.821Z",
     "headers": [],
     "params": [],
     "tests": []
